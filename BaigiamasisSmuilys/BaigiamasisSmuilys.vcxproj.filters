@@ -27,6 +27,9 @@
     <ClCompile Include="MyForm3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Menui.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -41,5 +44,13 @@
     <ClInclude Include="MyForm3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Menui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MyForm1.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
