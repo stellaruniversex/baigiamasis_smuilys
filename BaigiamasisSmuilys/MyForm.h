@@ -47,6 +47,8 @@ namespace BaigiamasisSmuilys {
 	private: System::Windows::Forms::TextBox^  textBox4;
 	private: System::Windows::Forms::TextBox^  textBox5;
 	private: System::Windows::Forms::Button^  button1;
+	private: System::Windows::Forms::TextBox^  textBox6;
+	private: System::Windows::Forms::TextBox^  textBox7;
 
 	private:
 		/// <summary>
@@ -73,6 +75,8 @@ namespace BaigiamasisSmuilys {
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
 			this->SuspendLayout();
 			// 
 			// label1
@@ -164,8 +168,9 @@ namespace BaigiamasisSmuilys {
 			// 
 			this->textBox4->Font = (gcnew System::Drawing::Font(L"Consolas", 14.25F));
 			this->textBox4->Location = System::Drawing::Point(232, 199);
+			this->textBox4->MaxLength = 4;
 			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(203, 30);
+			this->textBox4->Size = System::Drawing::Size(86, 30);
 			this->textBox4->TabIndex = 9;
 			// 
 			// textBox5
@@ -186,6 +191,24 @@ namespace BaigiamasisSmuilys {
 			this->button1->Text = L"Įterpti";
 			this->button1->UseVisualStyleBackColor = true;
 			// 
+			// textBox6
+			// 
+			this->textBox6->Font = (gcnew System::Drawing::Font(L"Consolas", 14.25F));
+			this->textBox6->Location = System::Drawing::Point(324, 199);
+			this->textBox6->MaxLength = 2;
+			this->textBox6->Name = L"textBox6";
+			this->textBox6->Size = System::Drawing::Size(52, 30);
+			this->textBox6->TabIndex = 12;
+			// 
+			// textBox7
+			// 
+			this->textBox7->Font = (gcnew System::Drawing::Font(L"Consolas", 14.25F));
+			this->textBox7->Location = System::Drawing::Point(382, 199);
+			this->textBox7->MaxLength = 2;
+			this->textBox7->Name = L"textBox7";
+			this->textBox7->Size = System::Drawing::Size(52, 30);
+			this->textBox7->TabIndex = 13;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -193,6 +216,8 @@ namespace BaigiamasisSmuilys {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->ClientSize = System::Drawing::Size(484, 461);
+			this->Controls->Add(this->textBox7);
+			this->Controls->Add(this->textBox6);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->textBox5);
 			this->Controls->Add(this->textBox4);
