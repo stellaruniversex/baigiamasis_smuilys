@@ -30,6 +30,9 @@
     <ClCompile Include="Menui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="about.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -45,6 +48,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Menui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="about.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

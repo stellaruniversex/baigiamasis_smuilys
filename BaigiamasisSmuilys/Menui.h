@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "MyForm.h"
+#include "about.h"
 
 namespace BaigiamasisSmuilys {
 
@@ -159,6 +160,8 @@ private: System::Void prekiøRedagavimasToolStripMenuItem_Click(System::Object^ 
 	this->Hide();
 }
 private: System::Void nupPrekiøRedagavimasToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+	about ^ form_about = gcnew about(this);
+	form_about->Show();
 }
 };
 }

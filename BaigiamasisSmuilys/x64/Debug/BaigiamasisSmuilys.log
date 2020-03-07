@@ -1,9 +1,5 @@
 ﻿  Menui.cpp
-  MyForm.cpp
-  MyForm1.cpp
-  MyForm2.cpp
-  MyForm3.cpp
+  about.cpp
   Generating Code...
-  .NETFramework,Version=v4.6.1.AssemblyAttributes.cpp
-  Menui.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+  about.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   BaigiamasisSmuilys.vcxproj -> C:\Users\PC\Documents\bd\x64\Debug\BaigiamasisSmuilys.exe
