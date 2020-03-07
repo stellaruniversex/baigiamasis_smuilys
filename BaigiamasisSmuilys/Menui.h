@@ -1,5 +1,7 @@
 ﻿#pragma once
 #include "MyForm.h"
+#include "MyForm1.h"
+#include "MyForm2.h"
 #include "about.h"
 
 namespace BaigiamasisSmuilys {
@@ -105,12 +107,14 @@ namespace BaigiamasisSmuilys {
 			this->pirkëjøRedagavimasToolStripMenuItem1->Name = L"pirkëjøRedagavimasToolStripMenuItem1";
 			this->pirkëjøRedagavimasToolStripMenuItem1->Size = System::Drawing::Size(209, 22);
 			this->pirkëjøRedagavimasToolStripMenuItem1->Text = L"Pirkėjų redagavimas";
+			this->pirkëjøRedagavimasToolStripMenuItem1->Click += gcnew System::EventHandler(this, &Menui::pirkëjøRedagavimasToolStripMenuItem1_Click);
 			// 
 			// nupPrekiøRedagavimasToolStripMenuItem1
 			// 
 			this->nupPrekiøRedagavimasToolStripMenuItem1->Name = L"nupPrekiøRedagavimasToolStripMenuItem1";
 			this->nupPrekiøRedagavimasToolStripMenuItem1->Size = System::Drawing::Size(209, 22);
 			this->nupPrekiøRedagavimasToolStripMenuItem1->Text = L"Nup. prekių redagavimas";
+			this->nupPrekiøRedagavimasToolStripMenuItem1->Click += gcnew System::EventHandler(this, &Menui::nupPrekiøRedagavimasToolStripMenuItem1_Click);
 			// 
 			// parduotuviøRedagavimasToolStripMenuItem
 			// 
@@ -162,6 +166,16 @@ private: System::Void prekiøRedagavimasToolStripMenuItem_Click(System::Object^ 
 private: System::Void nupPrekiøRedagavimasToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 	about ^ form_about = gcnew about(this);
 	form_about->Show();
+}
+private: System::Void pirkëjøRedagavimasToolStripMenuItem1_Click(System::Object^  sender, System::EventArgs^  e) {
+	MyForm1 ^ form_pirkejai = gcnew MyForm1(this);
+	form_pirkejai->Show();
+	this->Hide();
+}
+private: System::Void nupPrekiøRedagavimasToolStripMenuItem1_Click(System::Object^  sender, System::EventArgs^  e) {
+	MyForm2 ^ form_nupirktos = gcnew MyForm2(this);
+	form_nupirktos->Show();
+	this->Hide();
 }
 };
 }

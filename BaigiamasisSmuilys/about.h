@@ -23,6 +23,9 @@ namespace BaigiamasisSmuilys {
 			//TODO: Add the constructor code here
 			//
 		}
+
+	public:
+
 	private: System::Windows::Forms::Form ^ aboutt;
 
 	protected:

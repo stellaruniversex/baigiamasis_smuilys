@@ -15,14 +15,15 @@ namespace BaigiamasisSmuilys {
 	public ref class MyForm2 : public System::Windows::Forms::Form
 	{
 	public:
-		MyForm2(void)
+		MyForm2(System::Windows::Forms::Form ^ menui)
 		{
+			meniu = menui;
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
 			//
 		}
-
+	private: System::Windows::Forms::Form ^ meniu;
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -82,6 +83,7 @@ namespace BaigiamasisSmuilys {
 			this->button2->TabIndex = 38;
 			this->button2->Text = L"Į meniu";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &MyForm2::button2_Click);
 			// 
 			// button1
 			// 
@@ -200,5 +202,9 @@ namespace BaigiamasisSmuilys {
 
 		}
 #pragma endregion
-	};
+	private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+		this->Hide();
+		meniu->Show();
+	}
+};
 }
