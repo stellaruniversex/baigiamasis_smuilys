@@ -15,13 +15,17 @@ namespace BaigiamasisSmuilys {
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 	public:
-		MyForm(void)
+		MyForm(System::Windows::Forms::Form ^ menui)
 		{
+			meniu = menui;
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
 			//
 		}
+	private: System::Windows::Forms::Button^  button2;
+	public:
+	private: System::Windows::Forms::Form ^ meniu;
 
 	protected:
 		/// <summary>
@@ -77,6 +81,7 @@ namespace BaigiamasisSmuilys {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
+			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// label1
@@ -209,6 +214,17 @@ namespace BaigiamasisSmuilys {
 			this->textBox7->Size = System::Drawing::Size(52, 30);
 			this->textBox7->TabIndex = 13;
 			// 
+			// button2
+			// 
+			this->button2->Font = (gcnew System::Drawing::Font(L"Consolas", 18.25F));
+			this->button2->Location = System::Drawing::Point(125, 355);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(214, 54);
+			this->button2->TabIndex = 14;
+			this->button2->Text = L"Atgal i meniu";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -216,6 +232,7 @@ namespace BaigiamasisSmuilys {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->ClientSize = System::Drawing::Size(484, 461);
+			this->Controls->Add(this->button2);
 			this->Controls->Add(this->textBox7);
 			this->Controls->Add(this->textBox6);
 			this->Controls->Add(this->button1);
@@ -239,5 +256,9 @@ namespace BaigiamasisSmuilys {
 #pragma endregion
 	private: System::Void label5_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
+private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+	this->Hide();
+	meniu->Show();
+}
 };
 }

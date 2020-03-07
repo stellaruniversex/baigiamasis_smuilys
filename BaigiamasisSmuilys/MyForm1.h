@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 namespace BaigiamasisSmuilys {
 
@@ -80,7 +80,7 @@ namespace BaigiamasisSmuilys {
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(214, 54);
 			this->button2->TabIndex = 27;
-			this->button2->Text = L"Á meniu";
+			this->button2->Text = L"Ä® meniu";
 			this->button2->UseVisualStyleBackColor = true;
 			// 
 			// button1
@@ -90,7 +90,7 @@ namespace BaigiamasisSmuilys {
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(174, 54);
 			this->button1->TabIndex = 26;
-			this->button1->Text = L"Áterpti";
+			this->button1->Text = L"Ä®terpti";
 			this->button1->UseVisualStyleBackColor = true;
 			// 
 			// textBox4
@@ -133,7 +133,7 @@ namespace BaigiamasisSmuilys {
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(80, 22);
 			this->label6->TabIndex = 21;
-			this->label6->Text = L"Pavardë";
+			this->label6->Text = L"PavardÄ—";
 			// 
 			// label4
 			// 
@@ -173,7 +173,7 @@ namespace BaigiamasisSmuilys {
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(360, 26);
 			this->label2->TabIndex = 17;
-			this->label2->Text = L"Pirkëjø áterpimas/redagavimas";
+			this->label2->Text = L"PirkÄ—jÅ³ Ä¯terpimas/redagavimas";
 			// 
 			// MyForm1
 			// 

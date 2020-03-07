@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 namespace BaigiamasisSmuilys {
 
@@ -80,7 +80,7 @@ namespace BaigiamasisSmuilys {
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(214, 54);
 			this->button2->TabIndex = 38;
-			this->button2->Text = L"Á meniu";
+			this->button2->Text = L"Ä® meniu";
 			this->button2->UseVisualStyleBackColor = true;
 			// 
 			// button1
@@ -90,7 +90,7 @@ namespace BaigiamasisSmuilys {
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(174, 54);
 			this->button1->TabIndex = 37;
-			this->button1->Text = L"Áterpti";
+			this->button1->Text = L"Ä®terpti";
 			this->button1->UseVisualStyleBackColor = true;
 			// 
 			// textBox4
@@ -133,7 +133,7 @@ namespace BaigiamasisSmuilys {
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(150, 22);
 			this->label6->TabIndex = 32;
-			this->label6->Text = L"Pirkëjo vardas";
+			this->label6->Text = L"PirkÄ—jo vardas";
 			// 
 			// label4
 			// 
@@ -163,7 +163,7 @@ namespace BaigiamasisSmuilys {
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(190, 22);
 			this->label1->TabIndex = 29;
-			this->label1->Text = L"Prekës pavadinimas";
+			this->label1->Text = L"PrekÄ—s pavadinimas";
 			// 
 			// label2
 			// 
@@ -173,7 +173,7 @@ namespace BaigiamasisSmuilys {
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(456, 26);
 			this->label2->TabIndex = 28;
-			this->label2->Text = L"Nupirktø prekiø áterpimas/redagavimas";
+			this->label2->Text = L"NupirktÅ³ prekiÅ³ Ä¯terpimas/redagavimas";
 			// 
 			// MyForm2
 			// 
