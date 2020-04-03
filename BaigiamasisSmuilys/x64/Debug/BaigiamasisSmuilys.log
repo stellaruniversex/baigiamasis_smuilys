@@ -4,6 +4,7 @@
   MyForm1.cpp
   MyForm2.cpp
   MyForm3.cpp
+  MyForm4.cpp
   Generating Code...
   .NETFramework,Version=v4.6.1.AssemblyAttributes.cpp
   about.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link

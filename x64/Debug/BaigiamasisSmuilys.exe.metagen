@@ -4,6 +4,7 @@
   BaigiamasisSmuilys.MyForm1.resources - Embedded, ContainedInManifestFile, 
   BaigiamasisSmuilys.MyForm2.resources - Embedded, ContainedInManifestFile, 
   BaigiamasisSmuilys.MyForm3.resources - Embedded, ContainedInManifestFile, 
+  BaigiamasisSmuilys.MyForm4.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
 Assembly BaigiamasisSmuilys, Version=0.0.*, Culture=Invariant Language (Invariant Country): 
 	hash=SHA1, flags=PublicKey
@@ -31,9 +32,12 @@ Class BaigiamasisSmuilys.MyForm1: AutoLayout, AnsiClass, Class, Public, BeforeFi
 Class BaigiamasisSmuilys.MyForm2: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(System.Windows.Forms.Form): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class BaigiamasisSmuilys.MyForm3: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.Windows.Forms.Form): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class BaigiamasisSmuilys.Menui: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-Class BaigiamasisSmuilys.MyForm3: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+Class BaigiamasisSmuilys.MyForm4: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
