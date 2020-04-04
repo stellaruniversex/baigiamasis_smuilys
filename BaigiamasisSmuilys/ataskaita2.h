@@ -10,12 +10,12 @@ namespace BaigiamasisSmuilys {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Summary for MyForm4
+	/// Summary for ataskaita2
 	/// </summary>
-	public ref class MyForm4 : public System::Windows::Forms::Form
+	public ref class ataskaita2 : public System::Windows::Forms::Form
 	{
 	public:
-		MyForm4(void)
+		ataskaita2(void)
 		{
 			InitializeComponent();
 			//
@@ -27,16 +27,16 @@ namespace BaigiamasisSmuilys {
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
-		~MyForm4()
+		~ataskaita2()
 		{
 			if (components)
 			{
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Label^  label2;
-	private: System::Windows::Forms::DataGridView^  dataGridView1;
+	private: System::Windows::Forms::Label^  label1;
 	protected:
+	private: System::Windows::Forms::DataGridView^  dataGridView1;
 
 	private:
 		/// <summary>
@@ -51,30 +51,30 @@ namespace BaigiamasisSmuilys {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// label2
+			// label1
 			// 
-			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Consolas", 16.25F));
-			this->label2->Location = System::Drawing::Point(133, 9);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(204, 26);
-			this->label2->TabIndex = 29;
-			this->label2->Text = L"Prekių ataskaita";
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Consolas", 16));
+			this->label1->Location = System::Drawing::Point(134, 9);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(216, 26);
+			this->label1->TabIndex = 0;
+			this->label1->Text = L"Pirkėjų ataskaita";
 			// 
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(12, 156);
+			this->dataGridView1->Location = System::Drawing::Point(12, 224);
 			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(460, 293);
-			this->dataGridView1->TabIndex = 30;
+			this->dataGridView1->Size = System::Drawing::Size(460, 225);
+			this->dataGridView1->TabIndex = 1;
 			// 
-			// MyForm4
+			// ataskaita2
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
@@ -82,9 +82,9 @@ namespace BaigiamasisSmuilys {
 				static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->ClientSize = System::Drawing::Size(484, 461);
 			this->Controls->Add(this->dataGridView1);
-			this->Controls->Add(this->label2);
-			this->Name = L"MyForm4";
-			this->Text = L"Ataskaitos";
+			this->Controls->Add(this->label1);
+			this->Name = L"ataskaita2";
+			this->Text = L"ataskaita2";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();

@@ -52,6 +52,7 @@ namespace BaigiamasisSmuilys {
 	private: System::Windows::Forms::ToolStripMenuItem^  pirkėjaiToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  nupPrekėsToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  parduotuvėsToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^  kvitoIšrašymasToolStripMenuItem;
 
 	private:
 		/// <summary>
@@ -73,11 +74,12 @@ namespace BaigiamasisSmuilys {
 			this->nupPrekiøRedagavimasToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->parduotuviøRedagavimasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->pToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->nupPrekiøRedagavimasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->prekėsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->pirkėjaiToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->nupPrekėsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->parduotuvėsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->nupPrekiøRedagavimasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->kvitoIšrašymasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -134,21 +136,14 @@ namespace BaigiamasisSmuilys {
 			// 
 			// pToolStripMenuItem
 			// 
-			this->pToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+			this->pToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
 				this->prekėsToolStripMenuItem,
-					this->pirkėjaiToolStripMenuItem, this->nupPrekėsToolStripMenuItem, this->parduotuvėsToolStripMenuItem
+					this->pirkėjaiToolStripMenuItem, this->nupPrekėsToolStripMenuItem, this->parduotuvėsToolStripMenuItem, this->kvitoIšrašymasToolStripMenuItem
 			});
 			this->pToolStripMenuItem->Name = L"pToolStripMenuItem";
 			this->pToolStripMenuItem->Size = System::Drawing::Size(73, 20);
 			this->pToolStripMenuItem->Text = L"Ataskaitos";
 			this->pToolStripMenuItem->Click += gcnew System::EventHandler(this, &Menui::pToolStripMenuItem_Click);
-			// 
-			// nupPrekiøRedagavimasToolStripMenuItem
-			// 
-			this->nupPrekiøRedagavimasToolStripMenuItem->Name = L"nupPrekiøRedagavimasToolStripMenuItem";
-			this->nupPrekiøRedagavimasToolStripMenuItem->Size = System::Drawing::Size(43, 20);
-			this->nupPrekiøRedagavimasToolStripMenuItem->Text = L"Apie";
-			this->nupPrekiøRedagavimasToolStripMenuItem->Click += gcnew System::EventHandler(this, &Menui::nupPrekiøRedagavimasToolStripMenuItem_Click);
 			// 
 			// prekėsToolStripMenuItem
 			// 
@@ -173,6 +168,19 @@ namespace BaigiamasisSmuilys {
 			this->parduotuvėsToolStripMenuItem->Name = L"parduotuvėsToolStripMenuItem";
 			this->parduotuvėsToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->parduotuvėsToolStripMenuItem->Text = L"Parduotuvės";
+			// 
+			// nupPrekiøRedagavimasToolStripMenuItem
+			// 
+			this->nupPrekiøRedagavimasToolStripMenuItem->Name = L"nupPrekiøRedagavimasToolStripMenuItem";
+			this->nupPrekiøRedagavimasToolStripMenuItem->Size = System::Drawing::Size(43, 20);
+			this->nupPrekiøRedagavimasToolStripMenuItem->Text = L"Apie";
+			this->nupPrekiøRedagavimasToolStripMenuItem->Click += gcnew System::EventHandler(this, &Menui::nupPrekiøRedagavimasToolStripMenuItem_Click);
+			// 
+			// kvitoIšrašymasToolStripMenuItem
+			// 
+			this->kvitoIšrašymasToolStripMenuItem->Name = L"kvitoIšrašymasToolStripMenuItem";
+			this->kvitoIšrašymasToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->kvitoIšrašymasToolStripMenuItem->Text = L"Kvito išrašymas";
 			// 
 			// Menui
 			// 

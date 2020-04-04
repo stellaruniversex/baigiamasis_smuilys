@@ -136,6 +136,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="about.cpp" />
+    <ClCompile Include="ataskaita2.cpp" />
+    <ClCompile Include="ataskaita3.cpp" />
+    <ClCompile Include="ataskaita4.cpp" />
+    <ClCompile Include="ataskaita5.cpp" />
     <ClCompile Include="Menui.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="MyForm1.cpp" />
@@ -145,6 +149,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="about.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ataskaita2.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ataskaita3.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ataskaita4.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ataskaita5.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Menui.h">
@@ -169,6 +185,18 @@
   <ItemGroup>
     <EmbeddedResource Include="about.resx">
       <DependentUpon>about.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ataskaita2.resx">
+      <DependentUpon>ataskaita2.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ataskaita3.resx">
+      <DependentUpon>ataskaita3.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ataskaita4.resx">
+      <DependentUpon>ataskaita4.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ataskaita5.resx">
+      <DependentUpon>ataskaita5.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menui.resx">
       <DependentUpon>Menui.h</DependentUpon>

@@ -36,6 +36,18 @@
     <ClCompile Include="MyForm4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ataskaita2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ataskaita3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ataskaita4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ataskaita5.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -59,6 +71,18 @@
     <ClInclude Include="MyForm4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ataskaita2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ataskaita3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ataskaita4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ataskaita5.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm1.resx">
@@ -77,6 +101,9 @@
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="about.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm4.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>
