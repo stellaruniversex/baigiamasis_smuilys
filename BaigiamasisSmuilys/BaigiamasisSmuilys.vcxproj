@@ -46,7 +46,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CLRSupport>true</CLRSupport>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>NotSet</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -140,6 +140,7 @@
     <ClCompile Include="ataskaita3.cpp" />
     <ClCompile Include="ataskaita4.cpp" />
     <ClCompile Include="ataskaita5.cpp" />
+    <ClCompile Include="Funkcijos.cpp" />
     <ClCompile Include="Menui.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="MyForm1.cpp" />
@@ -163,6 +164,7 @@
     <ClInclude Include="ataskaita5.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Funkcijos.h" />
     <ClInclude Include="Menui.h">
       <FileType>CppForm</FileType>
     </ClInclude>

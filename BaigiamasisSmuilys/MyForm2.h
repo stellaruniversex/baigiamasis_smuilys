@@ -143,9 +143,9 @@ namespace BaigiamasisSmuilys {
 			this->label4->Font = (gcnew System::Drawing::Font(L"Consolas", 14.25F));
 			this->label4->Location = System::Drawing::Point(26, 169);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(170, 22);
+			this->label4->Size = System::Drawing::Size(60, 22);
 			this->label4->TabIndex = 31;
-			this->label4->Text = L"Gyvenamoji vieta";
+			this->label4->Text = L"Kaina";
 			// 
 			// label3
 			// 
@@ -181,8 +181,8 @@ namespace BaigiamasisSmuilys {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
 			this->ClientSize = System::Drawing::Size(484, 461);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);

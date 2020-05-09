@@ -48,6 +48,9 @@
     <ClCompile Include="ataskaita5.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Funkcijos.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -83,6 +86,9 @@
     <ClInclude Include="ataskaita5.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Funkcijos.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm1.resx">
@@ -104,6 +110,18 @@
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm4.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ataskaita2.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ataskaita3.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ataskaita4.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ataskaita5.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>

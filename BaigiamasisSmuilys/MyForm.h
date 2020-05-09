@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include "Funkcijos.h"
 
 namespace BaigiamasisSmuilys {
 
@@ -8,6 +9,7 @@ namespace BaigiamasisSmuilys {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace std;
 
 	/// <summary>
 	/// Summary for MyForm
@@ -133,7 +135,6 @@ namespace BaigiamasisSmuilys {
 			this->label5->Size = System::Drawing::Size(70, 22);
 			this->label5->TabIndex = 4;
 			this->label5->Text = L"Kiekis";
-			this->label5->Click += gcnew System::EventHandler(this, &MyForm::label5_Click);
 			// 
 			// label6
 			// 
@@ -148,7 +149,7 @@ namespace BaigiamasisSmuilys {
 			// textBox1
 			// 
 			this->textBox1->Font = (gcnew System::Drawing::Font(L"Consolas", 14.25F));
-			this->textBox1->Location = System::Drawing::Point(232, 72);
+			this->textBox1->Location = System::Drawing::Point(232, 77);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(203, 30);
 			this->textBox1->TabIndex = 6;
@@ -195,6 +196,7 @@ namespace BaigiamasisSmuilys {
 			this->button1->TabIndex = 11;
 			this->button1->Text = L"Įterpti";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// textBox6
 			// 
@@ -229,8 +231,8 @@ namespace BaigiamasisSmuilys {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
 			this->ClientSize = System::Drawing::Size(484, 461);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->textBox7);
@@ -254,11 +256,12 @@ namespace BaigiamasisSmuilys {
 
 		}
 #pragma endregion
-	private: System::Void label5_Click(System::Object^  sender, System::EventArgs^  e) {
-	}
+
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
 	this->Hide();
 	meniu->Show();
+}
+private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }
