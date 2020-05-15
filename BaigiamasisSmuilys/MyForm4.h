@@ -363,13 +363,17 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	dataGridView1->Columns->Add("Column", "Diena");
 	dataGridView1->Columns->Add("Column", "Kiekis");
 	std::ifstream fd("Prekes.txt");
-	while (!fd.eof())
+	fs << "         Pavadinimas           |      Gamintojas      |  Kaina  | Gal. data | Kiekis" << endl;
+	for (size_t i = 0; !fd.eof(); i++)
 	{
 		prekes->Skait(fd);
 		String^ db_pavadinimas = gcnew String(prekes->getPavadinimas().c_str());
 		String^ db_gamintojas = gcnew String(prekes->getGamintojas().c_str());
 		dataGridView1->Rows->Add(db_pavadinimas, db_gamintojas, prekes->getKaina(),
-			prekes->getMetai(), prekes->getMenuo(), prekes->getDiena(), prekes->getKiekis());
+		prekes->getMetai(), prekes->getMenuo(), prekes->getDiena(), prekes->getKiekis());
+		fs << setw(30) << prekes->getPavadinimas() << " | " << setw(20) << prekes->getGamintojas() << " | " << setw(7)
+			<< prekes->getKaina() << " | " << prekes->getMetai() << " " << prekes->getMenuo() << " " << setw(2) << prekes->getDiena() << " | "
+			<< prekes->getKiekis() << endl;
 	}
 	fd.close();
 }

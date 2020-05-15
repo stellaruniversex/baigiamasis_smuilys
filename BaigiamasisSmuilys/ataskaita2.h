@@ -9,6 +9,7 @@ namespace BaigiamasisSmuilys {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace std;
 
 	/// <summary>
 	/// Summary for ataskaita2
@@ -262,13 +263,16 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	dataGridView1->Columns->Add("Column", "Telefonas");
 	dataGridView1->Columns->Add("Column", "Gyv. vieta");
 	std::ifstream fd("Pirkejai.txt");
-	while (!fd.eof())
+	fs << "    Vardas      |    Pavarde   | Telefonas  | Gyv. vieta" << endl;
+	for (size_t i = 0; !fd.eof(); i++)
 	{
 		pirkejai->Skait(fd);
 		String^ db_vardas = gcnew String(pirkejai->getVardas().c_str());
 		String^ db_pavarde = gcnew String(pirkejai->getPavarde().c_str());
 		String^ db_gyvvieta = gcnew String(pirkejai->getGyvVieta().c_str());
 		dataGridView1->Rows->Add(db_vardas, db_pavarde, pirkejai->getTelefonas(), db_gyvvieta);
+		fs << setw(15) << pirkejai->getVardas() << " | " << setw(12) << pirkejai->getPavarde() 
+			<< " | " << setw(10) << pirkejai->getTelefonas() << " | " << pirkejai->getGyvVieta() << endl;
 	}
 }
 };

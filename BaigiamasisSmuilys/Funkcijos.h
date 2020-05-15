@@ -69,6 +69,7 @@ public:
 		return Kiekis;
 	}
 	void Skait(std::ifstream &fd);
+	void Iterpti(std::string pavadinimas, std::string gamintojas, double kaina, int metai, int menuo, int diena, int kiekis);
 	void Spausd(std::ofstream &fs);
 };
 class Pirkejas
@@ -112,6 +113,8 @@ public:
 		return GyvenamojiVieta;
 	}
 	void Skait(std::ifstream &fd);
+	void Iterpti(std::string vardas, std::string pavarde, int telefonas, std::string gyvvieta);
+	void Spausd(std::ofstream &fs);
 };
 class NupirktaPreke
 {
@@ -154,6 +157,7 @@ public:
 		Kaina = kaina;
 	}
 	void Skait(std::ifstream &fd);
+	void Spausd(std::ofstream &fs);
 };
 class Parduotuve
 {
@@ -162,7 +166,48 @@ class Parduotuve
 	int Dydis;
 	int Imokos;
 	int Ismokos;
+	std::string getVieta()
+	{
+		return Vieta;
+	}
+	void setVieta(std::string vieta)
+	{
+		Vieta = vieta;
+	}
+	int getLentynos()
+	{
+		return Lentynos;
+	}
+	void setLentynos(int lentynos)
+	{
+		Lentynos = lentynos;
+	}
+	int getDydis()
+	{
+		return Dydis;
+	}
+	void setDydis(int dydis)
+	{
+		Dydis = dydis;
+	}
+	int getImokos()
+	{
+		return Imokos;
+	}
+	void setImokos(int imokos)
+	{
+		Imokos = imokos;
+	}
+	int getIsmokos()
+	{
+		return Ismokos;
+	}
+	void setIsmokos(int ismokos)
+	{
+		Ismokos = ismokos;
+	}
 	void Skait(std::ifstream &fd);
+	void Spausd(std::ofstream &fs);
 };
 // external variables
 //int a;

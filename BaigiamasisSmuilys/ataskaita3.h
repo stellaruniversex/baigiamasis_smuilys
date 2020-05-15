@@ -8,6 +8,7 @@ namespace BaigiamasisSmuilys {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace std;
 
 	/// <summary>
 	/// Summary for ataskaita3
@@ -261,12 +262,14 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	dataGridView1->Columns->Add("Column", "Vardas");
 	dataGridView1->Columns->Add("Column", "Kiekis");
 	dataGridView1->Columns->Add("Column", "Kaina");
-	while (!fd.eof())
+	fs << "          Pavadinimas          |        Vardas        | Kaina  | Kiekis" << endl;
+	for (size_t i = 0; !fd.eof(); i++)
 	{
 		nupirktos->Skait(fd);
 		String^ db_pavadinimas = gcnew String(nupirktos->getPavadinimas().c_str());
 		String^ db_vardas = gcnew String(nupirktos->getVardas().c_str());
 		dataGridView1->Rows->Add(db_pavadinimas, db_vardas, nupirktos->getKaina(), nupirktos->getKiekis());
+		fs << setw(30) << nupirktos->getPavadinimas() << " | " << setw(20) << nupirktos->getVardas() << " | " << setw(6) << nupirktos->getKaina() << " | " << nupirktos->getKiekis() << endl;
 	}
 	fd.close();
 }

@@ -56,6 +56,22 @@ void NupirktaPreke::Skait(ifstream &fd)
 	setKiekis(kiekis);
 	fd.ignore(80, '\n');
 }
+void Parduotuve::Skait(ifstream &fd)
+{
+	string vieta = "";
+	int lentynos = 0;
+	int dydis = 0;
+	int imokos = 0;
+	int ismokos = 0;
+	getline(fd, vieta, ';');
+	setVieta(vieta);
+	fd >> lentynos >> dydis >> imokos >> ismokos;
+	setLentynos(lentynos);
+	setDydis(dydis);
+	setImokos(imokos);
+	setIsmokos(ismokos);
+	fd.ignore(80, '\n');
+}
 //void skaitPrekes(Preke prekes[], string txt, int &n)
 //{
 	//ifstream fd(txt);
