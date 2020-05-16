@@ -16,11 +16,11 @@ namespace BaigiamasisSmuilys {
 	public ref class ataskaita4 : public System::Windows::Forms::Form
 	{
 	public:
-		ataskaita4(System::Windows::Forms::Form ^ menui, Preke * val)
+		ataskaita4(System::Windows::Forms::Form ^ menui, Parduotuves * val)
 		{
 			meniu = menui;
 			InitializeComponent();
-			prekes = val;
+			parduotuves = val;
 			//
 			//TODO: Add the constructor code here
 			//
@@ -61,7 +61,7 @@ namespace BaigiamasisSmuilys {
 	private:
 		/// <summary>
 		/// Required designer variable.
-		Preke * prekes;
+		Parduotuves * parduotuves;
 		/// </summary>
 		System::ComponentModel::Container ^components;
 
@@ -290,18 +290,26 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	dataGridView1->Columns->Add("Column", "Dydis");
 	dataGridView1->Columns->Add("Column", "Imokos");
 	dataGridView1->Columns->Add("Column", "Islaidos");
-	dataGridView1->Columns->Add("Column", "Islaidos");
-	dataGridView1->Columns->Add("Column", "Islaidos");
 	//ofstream fs("NPrekesAtaskaita.txt");
-	std::ifstream fd("Prekes.txt");
-	while (!fd.eof())
+	std::ifstream fd("Parduotuves.txt");
+	std::ofstream fs("ParduotuvesAtaskaita.txt");
+	fs << "            Vieta              | Lentynu sk.  | Dydis | Imokos  | Ismokos" << endl;
+	for (size_t i = 0; !fd.eof(); i++)
 	{
-		prekes->Skait(fd);
-		String^ db_pavadinimas = gcnew String(prekes->getPavadinimas().c_str());
-		String^ db_gamintojas = gcnew String(prekes->getGamintojas().c_str());
-		dataGridView1->Rows->Add(db_pavadinimas, db_gamintojas, prekes->getKaina(), prekes->getKaina(), 
-			prekes->getMetai(), prekes->getMenuo(), prekes->getDiena(), prekes->getKiekis());
+		parduotuves->parduotuves[i].Skait(fd);
+		String^ db_vieta = gcnew String(parduotuves->parduotuves[i].getVieta().c_str());
+		dataGridView1->Rows->Add(db_vieta, parduotuves->parduotuves[i].getLentynos(), parduotuves->parduotuves[i].getDydis(), 
+		parduotuves->parduotuves[i].getImokos(), parduotuves->parduotuves[i].getIsmokos());
+		fs << setw(30) << parduotuves->parduotuves[i].getVieta() << " | " << setw(12) << parduotuves->parduotuves[i].getLentynos() << " | " << setw(5) << parduotuves->parduotuves[i].getDydis() << " | " << setw(7) << parduotuves->parduotuves[i].getImokos() << " | " << parduotuves->parduotuves[i].getIsmokos() << endl;
 	}
+	//while (!fd.eof())
+	//{
+		//prekes->prekes[0].Skait(fd);
+		//String^ db_pavadinimas = gcnew String(prekes->getPavadinimas().c_str());
+		//String^ db_gamintojas = gcnew String(prekes->getGamintojas().c_str());
+		//dataGridView1->Rows->Add(db_pavadinimas, db_gamintojas, prekes->getKaina(), prekes->getKaina(), 
+			//prekes->getMetai(), prekes->getMenuo(), prekes->getDiena(), prekes->getKiekis());
+	//}
 	fd.close();
 }
 };

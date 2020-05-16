@@ -17,7 +17,7 @@ namespace BaigiamasisSmuilys {
 	public ref class ataskaita2 : public System::Windows::Forms::Form
 	{
 	public:
-		ataskaita2(System::Windows::Forms::Form ^ menui, Pirkejas * pk)
+		ataskaita2(System::Windows::Forms::Form ^ menui, Pirkejai * pk)
 		{
 			meniu = menui;
 			InitializeComponent();
@@ -59,7 +59,7 @@ namespace BaigiamasisSmuilys {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		Pirkejas * pirkejai;
+		Pirkejai * pirkejai;
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
@@ -266,13 +266,13 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	fs << "    Vardas      |    Pavarde   | Telefonas  | Gyv. vieta" << endl;
 	for (size_t i = 0; !fd.eof(); i++)
 	{
-		pirkejai->Skait(fd);
-		String^ db_vardas = gcnew String(pirkejai->getVardas().c_str());
-		String^ db_pavarde = gcnew String(pirkejai->getPavarde().c_str());
-		String^ db_gyvvieta = gcnew String(pirkejai->getGyvVieta().c_str());
-		dataGridView1->Rows->Add(db_vardas, db_pavarde, pirkejai->getTelefonas(), db_gyvvieta);
-		fs << setw(15) << pirkejai->getVardas() << " | " << setw(12) << pirkejai->getPavarde() 
-			<< " | " << setw(10) << pirkejai->getTelefonas() << " | " << pirkejai->getGyvVieta() << endl;
+		pirkejai->pirkejai[i].Skait(fd);
+		String^ db_vardas = gcnew String(pirkejai->pirkejai[i].getVardas().c_str());
+		String^ db_pavarde = gcnew String(pirkejai->pirkejai[i].getPavarde().c_str());
+		String^ db_gyvvieta = gcnew String(pirkejai->pirkejai[i].getGyvVieta().c_str());
+		dataGridView1->Rows->Add(db_vardas, db_pavarde, pirkejai->pirkejai[i].getTelefonas(), db_gyvvieta);
+		fs << setw(15) << pirkejai->pirkejai[i].getVardas() << " | " << setw(12) << pirkejai->pirkejai[i].getPavarde()
+			<< " | " << setw(10) << pirkejai->pirkejai[i].getTelefonas() << " | " << pirkejai->pirkejai[i].getGyvVieta() << endl;
 	}
 }
 };

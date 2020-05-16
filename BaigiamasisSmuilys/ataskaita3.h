@@ -16,7 +16,7 @@ namespace BaigiamasisSmuilys {
 	public ref class ataskaita3 : public System::Windows::Forms::Form
 	{
 	public:
-		ataskaita3(System::Windows::Forms::Form ^ menui, NupirktaPreke * np)
+		ataskaita3(System::Windows::Forms::Form ^ menui, NupirktaPrekes * np)
 		{
 			meniu = menui;
 			InitializeComponent();
@@ -58,7 +58,7 @@ namespace BaigiamasisSmuilys {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		NupirktaPreke * nupirktos;
+		NupirktaPrekes * nupirktos;
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
@@ -265,11 +265,11 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	fs << "          Pavadinimas          |        Vardas        | Kaina  | Kiekis" << endl;
 	for (size_t i = 0; !fd.eof(); i++)
 	{
-		nupirktos->Skait(fd);
-		String^ db_pavadinimas = gcnew String(nupirktos->getPavadinimas().c_str());
-		String^ db_vardas = gcnew String(nupirktos->getVardas().c_str());
-		dataGridView1->Rows->Add(db_pavadinimas, db_vardas, nupirktos->getKaina(), nupirktos->getKiekis());
-		fs << setw(30) << nupirktos->getPavadinimas() << " | " << setw(20) << nupirktos->getVardas() << " | " << setw(6) << nupirktos->getKaina() << " | " << nupirktos->getKiekis() << endl;
+		nupirktos->nupirktos[i].Skait(fd);
+		String^ db_pavadinimas = gcnew String(nupirktos->nupirktos[i].getPavadinimas().c_str());
+		String^ db_vardas = gcnew String(nupirktos->nupirktos[i].getVardas().c_str());
+		dataGridView1->Rows->Add(db_pavadinimas, db_vardas, nupirktos->nupirktos[i].getKaina(), nupirktos->nupirktos[i].getKiekis());
+		fs << setw(30) << nupirktos->nupirktos[i].getPavadinimas() << " | " << setw(20) << nupirktos->nupirktos[i].getVardas() << " | " << setw(6) << nupirktos->nupirktos[i].getKaina() << " | " << nupirktos->nupirktos[i].getKiekis() << endl;
 	}
 	fd.close();
 }

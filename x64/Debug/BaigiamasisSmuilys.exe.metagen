@@ -29,13 +29,13 @@ Class BaigiamasisSmuilys.about: AutoLayout, AnsiClass, Class, Public, BeforeFiel
     Void .ctor(System.Windows.Forms.Form): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class BaigiamasisSmuilys.ataskaita2: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
-    Void .ctor(System.Windows.Forms.Form, Pirkejas*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Windows.Forms.Form, Pirkejai*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class BaigiamasisSmuilys.ataskaita3: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
-    Void .ctor(System.Windows.Forms.Form, NupirktaPreke*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Windows.Forms.Form, NupirktaPrekes*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class BaigiamasisSmuilys.ataskaita4: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
-    Void .ctor(System.Windows.Forms.Form, Preke*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Windows.Forms.Form, Parduotuves*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class BaigiamasisSmuilys.ataskaita5: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(System.Windows.Forms.Form): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -53,7 +53,7 @@ Class BaigiamasisSmuilys.MyForm3: AutoLayout, AnsiClass, Class, Public, BeforeFi
     Void .ctor(System.Windows.Forms.Form): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class BaigiamasisSmuilys.MyForm4: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
-    Void .ctor(System.Windows.Forms.Form, Preke*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Windows.Forms.Form, Prekes*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class BaigiamasisSmuilys.Menui: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

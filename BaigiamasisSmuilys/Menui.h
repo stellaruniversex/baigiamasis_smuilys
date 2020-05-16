@@ -31,10 +31,10 @@ namespace BaigiamasisSmuilys {
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
-			prekes = new Preke();
-			pirkejai = new Pirkejas();
-			nupirktos = new NupirktaPreke();
-			parduotuves = new Parduotuve();
+			prekes = new Prekes();
+			pirkejai = new Pirkejai();
+			nupirktos = new NupirktaPrekes();
+			parduotuves = new Parduotuves();
 			//
 		}
 
@@ -79,10 +79,10 @@ namespace BaigiamasisSmuilys {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		Preke * prekes;
-		Pirkejas * pirkejai;
-		NupirktaPreke * nupirktos;
-		Parduotuve * parduotuves;
+		Prekes * prekes;
+		Pirkejai * pirkejai;
+		NupirktaPrekes * nupirktos;
+		Parduotuves * parduotuves;
 		System::ComponentModel::Container ^components;
 
 
@@ -312,7 +312,7 @@ private: System::Void nupPrekėsToolStripMenuItem_Click(System::Object^  sender,
 	this->Hide();
 }
 private: System::Void parduotuvėsToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
-	ataskaita4 ^ form_ataskaitos4 = gcnew ataskaita4(this, prekes);
+	ataskaita4 ^ form_ataskaitos4 = gcnew ataskaita4(this, parduotuves);
 	form_ataskaitos4->Show();
 	this->Hide();
 }

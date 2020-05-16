@@ -16,7 +16,7 @@ namespace BaigiamasisSmuilys {
 	public ref class MyForm4 : public System::Windows::Forms::Form
 	{
 	public:
-		MyForm4(System::Windows::Forms::Form ^ menui, Preke * val)
+		MyForm4(System::Windows::Forms::Form ^ menui, Prekes * val)
 		{
 			meniu = menui;
 			InitializeComponent();
@@ -74,7 +74,7 @@ namespace BaigiamasisSmuilys {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		Preke * prekes;
+		Prekes * prekes;
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
@@ -366,14 +366,14 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	fs << "         Pavadinimas           |      Gamintojas      |  Kaina  | Gal. data | Kiekis" << endl;
 	for (size_t i = 0; !fd.eof(); i++)
 	{
-		prekes->Skait(fd);
-		String^ db_pavadinimas = gcnew String(prekes->getPavadinimas().c_str());
-		String^ db_gamintojas = gcnew String(prekes->getGamintojas().c_str());
-		dataGridView1->Rows->Add(db_pavadinimas, db_gamintojas, prekes->getKaina(),
-		prekes->getMetai(), prekes->getMenuo(), prekes->getDiena(), prekes->getKiekis());
-		fs << setw(30) << prekes->getPavadinimas() << " | " << setw(20) << prekes->getGamintojas() << " | " << setw(7)
-			<< prekes->getKaina() << " | " << prekes->getMetai() << " " << prekes->getMenuo() << " " << setw(2) << prekes->getDiena() << " | "
-			<< prekes->getKiekis() << endl;
+		prekes->prekes[i].Skait(fd);
+		String^ db_pavadinimas = gcnew String(prekes->prekes[i].getPavadinimas().c_str());
+		String^ db_gamintojas = gcnew String(prekes->prekes[i].getGamintojas().c_str());
+		dataGridView1->Rows->Add(db_pavadinimas, db_gamintojas, prekes->prekes[i].getKaina(),
+		prekes->prekes[i].getMetai(), prekes->prekes[i].getMenuo(), prekes->prekes[i].getDiena(), prekes->prekes[i].getKiekis());
+		fs << setw(30) << prekes->prekes[i].getPavadinimas() << " | " << setw(20) << prekes->prekes[i].getGamintojas() << " | " << setw(7)
+			<< prekes->prekes[i].getKaina() << " | " << prekes->prekes[i].getMetai() << " " << prekes->prekes[i].getMenuo() << " " << setw(2) << prekes->prekes[i].getDiena() << " | "
+			<< prekes->prekes[i].getKiekis() << endl;
 	}
 	fd.close();
 }

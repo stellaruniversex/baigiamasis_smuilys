@@ -1,0 +1,3 @@
+            Vieta              | Lentynu sk.  | Dydis | Imokos  | Ismokos
+       456 Aukstoji g., Kaunas |          122 |  1400 |  292000 | 280000
+          8 Kauno g., Klaipeda |           60 |   900 |   75000 | 80000

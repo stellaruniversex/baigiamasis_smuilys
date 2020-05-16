@@ -166,6 +166,7 @@ class Parduotuve
 	int Dydis;
 	int Imokos;
 	int Ismokos;
+public:
 	std::string getVieta()
 	{
 		return Vieta;
@@ -208,6 +209,26 @@ class Parduotuve
 	}
 	void Skait(std::ifstream &fd);
 	void Spausd(std::ofstream &fs);
+};
+class Prekes
+{
+public:
+	Preke prekes[2048];
+};
+class Pirkejai
+{
+public:
+	Pirkejas pirkejai[2048];
+};
+class NupirktaPrekes
+{
+public:
+	NupirktaPreke nupirktos[2048];
+};
+class Parduotuves
+{
+public:
+	Parduotuve parduotuves[2048];
 };
 // external variables
 //int a;
