@@ -158,6 +158,7 @@ public:
 	}
 	void Skait(std::ifstream &fd);
 	void Spausd(std::ofstream &fs);
+	void Iterpti(std::string pavadinimas, std::string vardas, int kiekis, double kaina);
 };
 class Parduotuve
 {

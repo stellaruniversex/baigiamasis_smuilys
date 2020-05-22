@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include "Funkcijos.h"
 
 namespace BaigiamasisSmuilys {
 
@@ -8,6 +9,7 @@ namespace BaigiamasisSmuilys {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace std;
 
 	/// <summary>
 	/// Summary for MyForm1
@@ -15,9 +17,10 @@ namespace BaigiamasisSmuilys {
 	public ref class MyForm1 : public System::Windows::Forms::Form
 	{
 	public:
-		MyForm1(System::Windows::Forms::Form ^ menui)
+		MyForm1(System::Windows::Forms::Form ^ menui, Pirkejai * pr)
 		{
 			meniu = menui;
+			pirkejai = pr;
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
@@ -52,6 +55,7 @@ namespace BaigiamasisSmuilys {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
+		Pirkejai * pirkejai;
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
@@ -94,6 +98,7 @@ namespace BaigiamasisSmuilys {
 			this->button1->TabIndex = 26;
 			this->button1->Text = L"Įterpti";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &MyForm1::button1_Click);
 			// 
 			// textBox4
 			// 
@@ -206,5 +211,34 @@ namespace BaigiamasisSmuilys {
 		this->Hide();
 		meniu->Show();
 	}
+private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+	int a = 0;
+	ifstream fd("Pirkejai.txt");
+	for (size_t i = 0; !fd.eof(); i++)
+	{
+		pirkejai->pirkejai[i].Skait(fd);
+		a++;
+	}
+	msclr::interop::marshal_context context;
+	string vardas = "";
+	string pavarde = "";
+	string gyvenamoji = "";
+	int telefonas = 0;
+	vardas = context.marshal_as<std::string>(textBox1->Text);
+	pavarde = context.marshal_as<std::string>(textBox2->Text);
+	gyvenamoji = context.marshal_as<std::string>(textBox4->Text);
+	telefonas = int::Parse(textBox3->Text);
+	pirkejai->pirkejai[a].Iterpti(vardas, pavarde, telefonas, gyvenamoji);
+	ofstream fs("Pirkejai.txt");
+	for (size_t j = 0; j <= a; j++)
+	{
+		fs << pirkejai->pirkejai[j].getVardas() << ";" << pirkejai->pirkejai[j].getPavarde() << ";" << pirkejai->pirkejai[j].getGyvVieta() << ";" << pirkejai->pirkejai[j].getTelefonas();
+		if (j < a) fs << endl;
+	}
+	textBox1->Clear();
+	textBox2->Clear();
+	textBox3->Clear();
+	textBox4->Clear();
+}
 };
 }

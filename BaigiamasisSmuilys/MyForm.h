@@ -17,9 +17,10 @@ namespace BaigiamasisSmuilys {
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 	public:
-		MyForm(System::Windows::Forms::Form ^ menui)
+		MyForm(System::Windows::Forms::Form ^ menui, Prekes * pk)
 		{
 			meniu = menui;
+			prekes = pk;
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
@@ -60,6 +61,7 @@ namespace BaigiamasisSmuilys {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
+		Prekes * prekes;
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
@@ -262,6 +264,44 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 	meniu->Show();
 }
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+	int a = 0;
+	ifstream fd("Prekes.txt");
+	for (size_t i = 0; !fd.eof(); i++)
+	{
+		prekes->prekes[i].Skait(fd);
+		a++;
+	}
+	msclr::interop::marshal_context context;
+	string pavadinimas = "";
+	string gamintojas = "";
+	double kaina = 0;
+	int metai = 0;
+	int menuo = 0;
+	int diena = 0;
+	int kiekis = 0;
+	pavadinimas = context.marshal_as<std::string>(textBox1->Text);
+	gamintojas = context.marshal_as<std::string>(textBox2->Text);
+	kaina = double::Parse(textBox3->Text);
+	metai = int::Parse(textBox4->Text);
+	menuo = int::Parse(textBox6->Text);
+	diena = int::Parse(textBox7->Text);
+	kiekis = int::Parse(textBox5->Text);
+	prekes->prekes[a].Iterpti(pavadinimas, gamintojas, kaina, 
+		metai, menuo, diena, kiekis);
+	ofstream fs("Prekes.txt");
+	for (size_t j = 0; j <= a; j++)
+	{
+		fs << prekes->prekes[j].getPavadinimas() << ";" << prekes->prekes[j].getGamintojas() << ";" << prekes->prekes[j].getKaina() << " " << prekes->prekes[j].getMetai()
+			<< " " << prekes->prekes[j].getMenuo() << " " << prekes->prekes[j].getDiena() << " " << prekes->prekes[j].getKiekis();
+		if (j < a) fs << endl;
+	}
+	textBox1->Clear();
+	textBox2->Clear();
+	textBox3->Clear();
+	textBox4->Clear();
+	textBox5->Clear();
+	textBox6->Clear();
+	textBox7->Clear();
 }
 };
 }

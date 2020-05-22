@@ -260,8 +260,8 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	std::ifstream fd("NPrekes.txt");
 	dataGridView1->Columns->Add("Column", "Pavadinimas");
 	dataGridView1->Columns->Add("Column", "Vardas");
-	dataGridView1->Columns->Add("Column", "Kiekis");
 	dataGridView1->Columns->Add("Column", "Kaina");
+	dataGridView1->Columns->Add("Column", "Kiekis");
 	fs << "          Pavadinimas          |        Vardas        | Kaina  | Kiekis" << endl;
 	for (size_t i = 0; !fd.eof(); i++)
 	{

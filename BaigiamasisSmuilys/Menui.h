@@ -273,7 +273,7 @@ namespace BaigiamasisSmuilys {
 	private: System::Void pToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
 private: System::Void prekiøRedagavimasToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
-	MyForm ^ form1 = gcnew MyForm(this);
+	MyForm ^ form1 = gcnew MyForm(this, prekes);
 	form1->Show();
 	this->Hide();
 }
@@ -282,12 +282,12 @@ private: System::Void nupPrekiøRedagavimasToolStripMenuItem_Click(System::Objec
 	form_about->Show();
 }
 private: System::Void pirkëjøRedagavimasToolStripMenuItem1_Click(System::Object^  sender, System::EventArgs^  e) {
-	MyForm1 ^ form_pirkejai = gcnew MyForm1(this);
+	MyForm1 ^ form_pirkejai = gcnew MyForm1(this, pirkejai);
 	form_pirkejai->Show();
 	this->Hide();
 }
 private: System::Void nupPrekiøRedagavimasToolStripMenuItem1_Click(System::Object^  sender, System::EventArgs^  e) {
-	MyForm2 ^ form_nupirktos = gcnew MyForm2(this);
+	MyForm2 ^ form_nupirktos = gcnew MyForm2(this, nupirktos);
 	form_nupirktos->Show();
 	this->Hide();
 }

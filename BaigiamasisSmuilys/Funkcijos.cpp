@@ -72,6 +72,29 @@ void Parduotuve::Skait(ifstream &fd)
 	setIsmokos(ismokos);
 	fd.ignore(80, '\n');
 }
+void Preke::Iterpti(string pavadinimas, string gamintojas, double kaina, int metai, int menuo, int diena, int kiekis)
+{
+	setPavadinimas(pavadinimas);
+	setGamintojas(gamintojas);
+	setKaina(kaina);
+	setData(metai, menuo, diena);
+	setKiekis(kiekis);
+}
+void Pirkejas::Iterpti(string vardas, string pavarde, int telefonas, string gyvvieta)
+{
+	setVardas(vardas);
+	setPavarde(pavarde);
+	setTelefonas(telefonas);
+	setGyvVieta(gyvvieta);
+}
+void NupirktaPreke::Iterpti(string pavadinimas, string vardas, int kiekis, double kaina)
+{
+	setPavadinimas(pavadinimas);
+	setVardas(vardas);
+	setKiekis(kiekis);
+	setKaina(kaina);
+}
+
 //void skaitPrekes(Preke prekes[], string txt, int &n)
 //{
 	//ifstream fd(txt);

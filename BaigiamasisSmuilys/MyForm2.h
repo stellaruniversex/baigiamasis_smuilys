@@ -1,5 +1,5 @@
 ﻿#pragma once
-
+#include "Funkcijos.h"
 namespace BaigiamasisSmuilys {
 
 	using namespace System;
@@ -8,6 +8,7 @@ namespace BaigiamasisSmuilys {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace std;
 
 	/// <summary>
 	/// Summary for MyForm2
@@ -15,9 +16,10 @@ namespace BaigiamasisSmuilys {
 	public ref class MyForm2 : public System::Windows::Forms::Form
 	{
 	public:
-		MyForm2(System::Windows::Forms::Form ^ menui)
+		MyForm2(System::Windows::Forms::Form ^ menui, NupirktaPrekes * np)
 		{
 			meniu = menui;
+			nupirktos = np;
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
@@ -52,6 +54,7 @@ namespace BaigiamasisSmuilys {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
+		NupirktaPrekes * nupirktos;
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
@@ -94,6 +97,7 @@ namespace BaigiamasisSmuilys {
 			this->button1->TabIndex = 37;
 			this->button1->Text = L"Įterpti";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &MyForm2::button1_Click);
 			// 
 			// textBox4
 			// 
@@ -202,6 +206,36 @@ namespace BaigiamasisSmuilys {
 
 		}
 #pragma endregion
+	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+		int a = 0;
+		ifstream fd("NPrekes.txt");
+		for (size_t i = 0; !fd.eof(); i++)
+		{
+			nupirktos->nupirktos[i].Skait(fd);
+			a++;
+		}
+		msclr::interop::marshal_context context;
+		string vardas = "";
+		string pavadinimas = "";
+		int kiekis = 0;
+		double kaina = 0;
+		pavadinimas = context.marshal_as<std::string>(textBox1->Text);
+		vardas = context.marshal_as<std::string>(textBox2->Text);
+		kiekis = int::Parse(textBox3->Text);
+		kaina = double::Parse(textBox4->Text);
+		nupirktos->nupirktos[a].Iterpti(pavadinimas, vardas, kiekis, kaina);
+		ofstream fs("NPrekes.txt");
+		for (size_t j = 0; j <= a; j++)
+		{
+			fs << nupirktos->nupirktos[j].getPavadinimas() << ";" << nupirktos->nupirktos[j].getVardas() << ";" << nupirktos->nupirktos[j].getKaina() << " " 
+			<< nupirktos->nupirktos[j].getKiekis();
+			if (j < a) fs << endl;
+		}
+		textBox1->Clear();
+		textBox2->Clear();
+		textBox3->Clear();
+		textBox4->Clear();
+	}
 	private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
 		this->Hide();
 		meniu->Show();
