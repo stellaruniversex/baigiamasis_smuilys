@@ -176,7 +176,7 @@ namespace BaigiamasisSmuilys {
 			// 
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Consolas", 16.25F));
-			this->label2->Location = System::Drawing::Point(71, 9);
+			this->label2->Location = System::Drawing::Point(63, 9);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(360, 26);
 			this->label2->TabIndex = 17;
@@ -201,7 +201,7 @@ namespace BaigiamasisSmuilys {
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->label2);
 			this->Name = L"MyForm1";
-			this->Text = L"MyForm1";
+			this->Text = L"Pirkeju iterpimas/redagavimas";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

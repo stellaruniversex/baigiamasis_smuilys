@@ -1,3 +1,4 @@
-Zilvinas;Smuilys;123 Naujoji g., Kaunas; 860199914
-Jonas;Jonaitis;256 Senoji g., Klaipeda; 865955141
-Petras;Petraitis;2 Lietuvos g., Vilnius; 854190909
+Zilvinas;Smuilys;123 Naujoji g., Kaunas;860199914
+Jonas;Jonaitis;256 Senoji g., Klaipeda;865955141
+Petras;Petraitis;2 Lietuvos g., Vilnius;854190909
+Marius;Marijonas;789 Aukstoji g., Siauliai;866310592

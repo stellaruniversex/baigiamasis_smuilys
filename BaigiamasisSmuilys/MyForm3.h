@@ -1,5 +1,5 @@
 ﻿#pragma once
-
+#include "Funkcijos.h"
 namespace BaigiamasisSmuilys {
 
 	using namespace System;
@@ -8,16 +8,17 @@ namespace BaigiamasisSmuilys {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
+	using namespace std;
 	/// <summary>
 	/// Summary for MyForm3
 	/// </summary>
 	public ref class MyForm3 : public System::Windows::Forms::Form
 	{
 	public:
-		MyForm3(System::Windows::Forms::Form ^ menui)
+		MyForm3(System::Windows::Forms::Form ^ menui, Parduotuves * pd)
 		{
 			meniu = menui;
+			parduotuves = pd;
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
@@ -54,6 +55,7 @@ namespace BaigiamasisSmuilys {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
+		Parduotuves * parduotuves;
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
@@ -98,6 +100,7 @@ namespace BaigiamasisSmuilys {
 			this->button1->TabIndex = 48;
 			this->button1->Text = L"Įterpti";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &MyForm3::button1_Click);
 			// 
 			// textBox4
 			// 
@@ -230,5 +233,31 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 		this->Hide();
 		meniu->Show();
 	}
+private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+	int a = 0;
+	ifstream fd("Parduotuves.txt");
+	for (size_t i = 0; !fd.eof(); i++)
+	{
+		parduotuves->parduotuves[i].Skait(fd);
+		a++;
+	}
+	msclr::interop::marshal_context context;
+	string vieta = "";
+	int lentynos = 0;
+	int dydis = 0;
+	int imokos = 0;
+	int ismokos = 0;
+	vieta = context.marshal_as<std::string>(textBox1->Text);
+	lentynos = int::Parse(textBox2->Text);
+	dydis = int::Parse(textBox3->Text);
+	imokos= int::Parse(textBox4->Text);
+	ismokos = int::Parse(textBox5->Text);
+	ofstream fs("Parduotuves.txt");
+	for (size_t j = 0; j <= a; j++)
+	{
+		fs << parduotuves->parduotuves[j].getVieta() << ";" << parduotuves->parduotuves[j].getLentynos() << " " << parduotuves->parduotuves[j].getDydis() << " " << parduotuves->parduotuves[j].getImokos() << " " << parduotuves->parduotuves[j].getIsmokos();
+		if (j < a) fs << endl;
+	}
+}
 };
 }

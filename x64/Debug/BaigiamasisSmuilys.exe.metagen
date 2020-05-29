@@ -50,7 +50,7 @@ Class BaigiamasisSmuilys.MyForm2: AutoLayout, AnsiClass, Class, Public, BeforeFi
     Void .ctor(System.Windows.Forms.Form, NupirktaPrekes*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class BaigiamasisSmuilys.MyForm3: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
-    Void .ctor(System.Windows.Forms.Form): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Windows.Forms.Form, Parduotuves*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class BaigiamasisSmuilys.MyForm4: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(System.Windows.Forms.Form, Prekes*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

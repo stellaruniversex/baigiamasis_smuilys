@@ -77,7 +77,7 @@ class Pirkejas
 private:
 	std::string Vardas;
 	std::string Pavarde;
-	int Telefonas;
+	long long int Telefonas;
 	std::string GyvenamojiVieta;
 public:
 	void setVardas(std::string vardas)
@@ -96,11 +96,11 @@ public:
 	{
 		return Pavarde;
 	}
-	void setTelefonas(int telefonas)
+	void setTelefonas(long long int telefonas)
 	{
 		Telefonas = telefonas;
 	}
-	int getTelefonas()
+	long long int getTelefonas()
 	{
 		return Telefonas;
 	}

@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include "Funkcijos.h"
 
 namespace BaigiamasisSmuilys {
 
@@ -8,6 +9,7 @@ namespace BaigiamasisSmuilys {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace std;
 
 	/// <summary>
 	/// Summary for ataskaita5
@@ -23,6 +25,8 @@ namespace BaigiamasisSmuilys {
 			//TODO: Add the constructor code here
 			//
 		}
+	private: System::Windows::Forms::Label^  label7;
+	public:
 	private: System::Windows::Forms::Form ^ meniu;
 
 	protected:
@@ -43,7 +47,7 @@ namespace BaigiamasisSmuilys {
 	private: System::Windows::Forms::TextBox^  textBox1;
 	private: System::Windows::Forms::Label^  label6;
 	private: System::Windows::Forms::Label^  label2;
-	private: System::Windows::Forms::DataGridView^  dataGridView2;
+
 	private: System::Windows::Forms::Label^  label3;
 	private: System::Windows::Forms::TextBox^  textBox3;
 	private: System::Windows::Forms::Label^  label4;
@@ -72,7 +76,6 @@ namespace BaigiamasisSmuilys {
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->label4 = (gcnew System::Windows::Forms::Label());
@@ -81,8 +84,8 @@ namespace BaigiamasisSmuilys {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->label7 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// dataGridView1
@@ -137,14 +140,6 @@ namespace BaigiamasisSmuilys {
 			this->label2->Size = System::Drawing::Size(190, 22);
 			this->label2->TabIndex = 24;
 			this->label2->Text = L"Prekės pavadinimas";
-			// 
-			// dataGridView2
-			// 
-			this->dataGridView2->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView2->Location = System::Drawing::Point(12, 440);
-			this->dataGridView2->Name = L"dataGridView2";
-			this->dataGridView2->Size = System::Drawing::Size(460, 184);
-			this->dataGridView2->TabIndex = 28;
 			// 
 			// label3
 			// 
@@ -225,13 +220,25 @@ namespace BaigiamasisSmuilys {
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &ataskaita5::button3_Click);
 			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Font = (gcnew System::Drawing::Font(L"Consolas", 16));
+			this->label7->Location = System::Drawing::Point(140, 448);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(216, 26);
+			this->label7->TabIndex = 37;
+			this->label7->Text = L"Laukiama išrašymo";
+			this->label7->TextAlign = System::Drawing::ContentAlignment::TopCenter;
+			// 
 			// ataskaita5
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->ClientSize = System::Drawing::Size(484, 636);
+			this->ClientSize = System::Drawing::Size(484, 511);
+			this->Controls->Add(this->label7);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
@@ -240,7 +247,6 @@ namespace BaigiamasisSmuilys {
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->textBox3);
 			this->Controls->Add(this->label3);
-			this->Controls->Add(this->dataGridView2);
 			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label6);
@@ -248,19 +254,15 @@ namespace BaigiamasisSmuilys {
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->label1);
 			this->Name = L"ataskaita5";
-			this->Text = L"ataskaita5";
+			this->Text = L"Kvitu israsymas";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
+			this->Load += gcnew System::EventHandler(this, &ataskaita5::ataskaita5_Load);
 
 		}
 #pragma endregion
-	private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
-		this->Hide();
-		meniu->Show();
-	}
-private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+private: System::Void ataskaita5_Load(System::Object^  sender, System::EventArgs^  e) {
 	dataGridView1->Rows->Clear();
 	dataGridView1->Columns->Clear();
 	dataGridView1->Refresh();
@@ -268,14 +270,43 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 	dataGridView1->Columns->Add("Column", "Kaina");
 	dataGridView1->Columns->Add("Column", "Kiekis");
 }
+private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
+	this->Hide();
+	meniu->Show();
+}
+private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+	string pavadinimas = "";
+	double kaina = 0;
+	int kiekis = 0;
+	msclr::interop::marshal_context context;
+	pavadinimas = context.marshal_as<std::string>(textBox1->Text);
+	kaina = double::Parse(textBox2->Text);
+	kiekis = int::Parse(textBox3->Text);
+	textBox1->Clear();
+	textBox2->Clear();
+	textBox3->Clear();
+	String^ db_pavadinimas = gcnew String(pavadinimas.c_str());
+	dataGridView1->Rows->Add(db_pavadinimas, kaina, kiekis);
+}
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-	dataGridView2->Rows->Clear();
-	dataGridView2->Columns->Clear();
-	dataGridView2->Refresh();
-	//ofstream fs("PirkejaiAtaskaita.txt");
-	dataGridView2->Columns->Add("Column", "Pavadinimas");
-	dataGridView2->Columns->Add("Column", "Kaina");
-	dataGridView2->Columns->Add("Column", "Kiekis");
+	ofstream fs("Kvitas.txt");
+	string vardas = "";
+	double value = 0;
+	msclr::interop::marshal_context context;
+	vardas = context.marshal_as<std::string>(textBox4->Text);
+	textBox4->Text = "";
+	fs << "Vardas: " << vardas << endl;
+	fs << "      Prekes pavadinimas        |  Kaina  | Kiekis" << endl;
+	for (size_t i = 0; i < (dataGridView1->Rows->Count) - 1; i++)
+	{
+		value += Convert::ToDouble(dataGridView1->Rows[i]->Cells[1]->Value) * Convert::ToInt32(dataGridView1->Rows[i]->Cells[2]->Value);
+		fs << setw(31) << context.marshal_as<std::string>(dataGridView1->Rows[i]->Cells[0]->Value->ToString()) << " | " << setw(7) << Convert::ToDouble(dataGridView1->Rows[i]->Cells[1]->Value) << " | " << Convert::ToInt32(dataGridView1->Rows[i]->Cells[2]->Value) << endl;
+	}
+	fs << "Galutine prekiu suma: " << value;
+	label7->Text = "Kvitas išspausdintas";
+	dataGridView1->Rows->Clear();
+	dataGridView1->Columns->Clear();
+	dataGridView1->Refresh();
 }
 };
 }

@@ -275,7 +275,7 @@ namespace BaigiamasisSmuilys {
 private: System::Void prekiøRedagavimasToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 	MyForm ^ form1 = gcnew MyForm(this, prekes);
 	form1->Show();
-	this->Hide();
+	//this->Hide();
 }
 private: System::Void nupPrekiøRedagavimasToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 	about ^ form_about = gcnew about(this);
@@ -284,42 +284,42 @@ private: System::Void nupPrekiøRedagavimasToolStripMenuItem_Click(System::Objec
 private: System::Void pirkëjøRedagavimasToolStripMenuItem1_Click(System::Object^  sender, System::EventArgs^  e) {
 	MyForm1 ^ form_pirkejai = gcnew MyForm1(this, pirkejai);
 	form_pirkejai->Show();
-	this->Hide();
+	//this->Hide();
 }
 private: System::Void nupPrekiøRedagavimasToolStripMenuItem1_Click(System::Object^  sender, System::EventArgs^  e) {
 	MyForm2 ^ form_nupirktos = gcnew MyForm2(this, nupirktos);
 	form_nupirktos->Show();
-	this->Hide();
+	//this->Hide();
 }
 private: System::Void parduotuviøRedagavimasToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
-	MyForm3 ^ form_parduotuves = gcnew MyForm3(this);
+	MyForm3 ^ form_parduotuves = gcnew MyForm3(this, parduotuves);
 	form_parduotuves->Show();
-	this->Hide();
+	//this->Hide();
 }
 private: System::Void prekėsToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 	MyForm4 ^ form_ataskaitos1 = gcnew MyForm4(this, prekes);
 	form_ataskaitos1->Show();
-	this->Hide();
+	//this->Hide();
 }
 private: System::Void pirkėjaiToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 	ataskaita2 ^ form_ataskaitos2 = gcnew ataskaita2(this, pirkejai);
 	form_ataskaitos2->Show();
-	this->Hide();
+	//this->Hide();
 }
 private: System::Void nupPrekėsToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 	ataskaita3 ^ form_ataskaitos3 = gcnew ataskaita3(this, nupirktos);
 	form_ataskaitos3->Show();
-	this->Hide();
+	//this->Hide();
 }
 private: System::Void parduotuvėsToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 	ataskaita4 ^ form_ataskaitos4 = gcnew ataskaita4(this, parduotuves);
 	form_ataskaitos4->Show();
-	this->Hide();
+	//this->Hide();
 }
 private: System::Void kvitoIšrašymasToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 	ataskaita5 ^ form_ataskaitos5 = gcnew ataskaita5(this);
 	form_ataskaitos5->Show();
-	this->Hide();
+	//this->Hide();
 }
 };
 }

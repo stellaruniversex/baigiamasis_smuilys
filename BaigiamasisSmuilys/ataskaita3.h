@@ -25,6 +25,8 @@ namespace BaigiamasisSmuilys {
 			//TODO: Add the constructor code here
 			//
 		}
+	private: System::Windows::Forms::Button^  button3;
+	public:
 	private: System::Windows::Forms::Form ^ meniu;
 
 	protected:
@@ -82,13 +84,14 @@ namespace BaigiamasisSmuilys {
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->button3 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(12, 261);
+			this->dataGridView1->Location = System::Drawing::Point(12, 315);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->Size = System::Drawing::Size(460, 195);
 			this->dataGridView1->TabIndex = 3;
@@ -218,13 +221,25 @@ namespace BaigiamasisSmuilys {
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &ataskaita3::button1_Click);
 			// 
+			// button3
+			// 
+			this->button3->Font = (gcnew System::Drawing::Font(L"Consolas", 12.5F));
+			this->button3->Location = System::Drawing::Point(139, 261);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(214, 48);
+			this->button3->TabIndex = 53;
+			this->button3->Text = L"Išsaugoti duomenis";
+			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &ataskaita3::button3_Click);
+			// 
 			// ataskaita3
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->ClientSize = System::Drawing::Size(484, 461);
+			this->ClientSize = System::Drawing::Size(484, 521);
+			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->textBox4);
@@ -240,7 +255,7 @@ namespace BaigiamasisSmuilys {
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->label1);
 			this->Name = L"ataskaita3";
-			this->Text = L"ataskaita3";
+			this->Text = L"Nupirktu prekiu ataskaita";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -272,6 +287,24 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 		fs << setw(30) << nupirktos->nupirktos[i].getPavadinimas() << " | " << setw(20) << nupirktos->nupirktos[i].getVardas() << " | " << setw(6) << nupirktos->nupirktos[i].getKaina() << " | " << nupirktos->nupirktos[i].getKiekis() << endl;
 	}
 	fd.close();
+}
+private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
+	int a = 0;
+	msclr::interop::marshal_context context;
+	for (size_t i = 0; i < (dataGridView1->Rows->Count) - 1; i++)
+	{
+		nupirktos->nupirktos[i].setPavadinimas(context.marshal_as<std::string>(dataGridView1->Rows[i]->Cells[0]->Value->ToString()));
+		nupirktos->nupirktos[i].setVardas(context.marshal_as<std::string>(dataGridView1->Rows[i]->Cells[1]->Value->ToString()));
+		nupirktos->nupirktos[i].setKaina(Convert::ToDouble(dataGridView1->Rows[i]->Cells[2]->Value));
+		nupirktos->nupirktos[i].setKiekis(Convert::ToInt32(dataGridView1->Rows[i]->Cells[3]->Value));
+		a++;
+	}
+	ofstream fs("NPrekes.txt");
+	for (size_t j = 0; j < a; j++)
+	{
+		fs << nupirktos->nupirktos[j].getPavadinimas() << ";" << nupirktos->nupirktos[j].getVardas() << ";" << nupirktos->nupirktos[j].getKaina() << " " << nupirktos->nupirktos[j].getKiekis();
+		if (j < a - 1) fs << endl;
+	}
 }
 };
 }

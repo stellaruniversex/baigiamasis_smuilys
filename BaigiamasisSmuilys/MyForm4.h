@@ -32,6 +32,7 @@ namespace BaigiamasisSmuilys {
 	private: System::Windows::Forms::TextBox^  textBox11;
 	private: System::Windows::Forms::TextBox^  textBox12;
 	private: System::Windows::Forms::Label^  label7;
+	private: System::Windows::Forms::Button^  button3;
 
 	private: System::Windows::Forms::Form ^ meniu;
 
@@ -106,6 +107,7 @@ namespace BaigiamasisSmuilys {
 			this->textBox11 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox12 = (gcnew System::Windows::Forms::TextBox());
 			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->button3 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -122,7 +124,7 @@ namespace BaigiamasisSmuilys {
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(11, 358);
+			this->dataGridView1->Location = System::Drawing::Point(11, 408);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->Size = System::Drawing::Size(460, 191);
 			this->dataGridView1->TabIndex = 30;
@@ -309,13 +311,25 @@ namespace BaigiamasisSmuilys {
 			this->label7->TabIndex = 53;
 			this->label7->Text = L"Filtruoti pagal...";
 			// 
+			// button3
+			// 
+			this->button3->Font = (gcnew System::Drawing::Font(L"Consolas", 14));
+			this->button3->Location = System::Drawing::Point(138, 354);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(214, 48);
+			this->button3->TabIndex = 54;
+			this->button3->Text = L"Išsaugoti duomenis";
+			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &MyForm4::button3_Click);
+			// 
 			// MyForm4
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->ClientSize = System::Drawing::Size(484, 561);
+			this->ClientSize = System::Drawing::Size(484, 611);
+			this->Controls->Add(this->button3);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->textBox6);
 			this->Controls->Add(this->textBox11);
@@ -339,13 +353,17 @@ namespace BaigiamasisSmuilys {
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->label2);
 			this->Name = L"MyForm4";
-			this->Text = L"Ataskaitos";
+			this->Text = L"Prekiu ataskaita";
+			this->Load += gcnew System::EventHandler(this, &MyForm4::MyForm4_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
+// dabartinis filtravimo planas
+// surasti prekes pavadinima ir gamintoja pagal string ieskojima 
+// filtruoti skaicius pagal paprasta "if" funkcija
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
 	this->Hide();
 	meniu->Show();
@@ -355,6 +373,7 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	dataGridView1->Columns->Clear();
 	dataGridView1->Refresh();
 	ofstream fs("PrekesAtaskaita.txt");
+	dataGridView1->Columns->Add("Column", "ID");
 	dataGridView1->Columns->Add("Column", "Pavadinimas");
 	dataGridView1->Columns->Add("Column", "Gamintojas");
 	dataGridView1->Columns->Add("Column", "Kaina");
@@ -364,18 +383,66 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	dataGridView1->Columns->Add("Column", "Kiekis");
 	std::ifstream fd("Prekes.txt");
 	fs << "         Pavadinimas           |      Gamintojas      |  Kaina  | Gal. data | Kiekis" << endl;
+	//msclr::interop::marshal_context context;
+	//string a = context.marshal_as<std::string>(dataGridView1->Rows[0]->Cells[0]->Value);
+	//prekes->prekes[0].setPavadinimas(a);
 	for (size_t i = 0; !fd.eof(); i++)
 	{
 		prekes->prekes[i].Skait(fd);
 		String^ db_pavadinimas = gcnew String(prekes->prekes[i].getPavadinimas().c_str());
 		String^ db_gamintojas = gcnew String(prekes->prekes[i].getGamintojas().c_str());
-		dataGridView1->Rows->Add(db_pavadinimas, db_gamintojas, prekes->prekes[i].getKaina(),
+		dataGridView1->Rows->Add(i, db_pavadinimas, db_gamintojas, prekes->prekes[i].getKaina(),
 		prekes->prekes[i].getMetai(), prekes->prekes[i].getMenuo(), prekes->prekes[i].getDiena(), prekes->prekes[i].getKiekis());
 		fs << setw(30) << prekes->prekes[i].getPavadinimas() << " | " << setw(20) << prekes->prekes[i].getGamintojas() << " | " << setw(7)
 			<< prekes->prekes[i].getKaina() << " | " << prekes->prekes[i].getMetai() << " " << prekes->prekes[i].getMenuo() << " " << setw(2) << prekes->prekes[i].getDiena() << " | "
 			<< prekes->prekes[i].getKiekis() << endl;
 	}
 	fd.close();
+}
+private: System::Void MyForm4_Load(System::Object^  sender, System::EventArgs^  e) {
+	dataGridView1->Rows->Clear();
+	dataGridView1->Columns->Clear();
+	dataGridView1->Refresh();
+	dataGridView1->Columns->Add("Column", "ID");
+	dataGridView1->Columns->Add("Column", "Pavadinimas");
+	dataGridView1->Columns->Add("Column", "Gamintojas");
+	dataGridView1->Columns->Add("Column", "Kaina");
+	dataGridView1->Columns->Add("Column", "Metai");
+	dataGridView1->Columns->Add("Column", "Menuo");
+	dataGridView1->Columns->Add("Column", "Diena");
+	dataGridView1->Columns->Add("Column", "Kiekis");
+	std::ifstream fd("Prekes.txt");
+	//msclr::interop::marshal_context context;
+	//string a = context.marshal_as<std::string>(dataGridView1->Rows[0]->Cells[0]->Value);
+	//prekes->prekes[0].setPavadinimas(a);
+	for (size_t i = 0; !fd.eof(); i++)
+	{
+		prekes->prekes[i].Skait(fd);
+		String^ db_pavadinimas = gcnew String(prekes->prekes[i].getPavadinimas().c_str());
+		String^ db_gamintojas = gcnew String(prekes->prekes[i].getGamintojas().c_str());
+		dataGridView1->Rows->Add(i, db_pavadinimas, db_gamintojas, prekes->prekes[i].getKaina(),
+			prekes->prekes[i].getMetai(), prekes->prekes[i].getMenuo(), prekes->prekes[i].getDiena(), prekes->prekes[i].getKiekis());
+	}
+}
+private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
+	int a = 0;
+	msclr::interop::marshal_context context;
+	for (size_t i = 0; i < (dataGridView1->Rows->Count)-1; i++)
+	{
+	    prekes->prekes[i].setPavadinimas(context.marshal_as<std::string>(dataGridView1->Rows[i]->Cells[1]->Value->ToString()));
+		prekes->prekes[i].setGamintojas(context.marshal_as<std::string>(dataGridView1->Rows[i]->Cells[2]->Value->ToString()));
+		prekes->prekes[i].setKaina(Convert::ToDouble(dataGridView1->Rows[i]->Cells[3]->Value));
+		prekes->prekes[i].setData(Convert::ToInt32(dataGridView1->Rows[i]->Cells[4]->Value), Convert::ToInt32(dataGridView1->Rows[i]->Cells[5]->Value), Convert::ToInt32(dataGridView1->Rows[i]->Cells[6]->Value));
+		prekes->prekes[i].setKiekis(Convert::ToInt32(dataGridView1->Rows[i]->Cells[7]->Value));
+		a++;
+	}
+	ofstream fs("Prekes.txt");
+	for (size_t j = 0; j < a; j++)
+	{
+		fs << prekes->prekes[j].getPavadinimas() << ";" << prekes->prekes[j].getGamintojas() << ";" << prekes->prekes[j].getKaina() << " " << prekes->prekes[j].getMetai()
+			<< " " << prekes->prekes[j].getMenuo() << " " << prekes->prekes[j].getDiena() << " " << prekes->prekes[j].getKiekis();
+		if (j < a-1) fs << endl;
+	}
 }
 };
 }
