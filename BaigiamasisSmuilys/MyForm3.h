@@ -24,6 +24,10 @@ namespace BaigiamasisSmuilys {
 			//TODO: Add the constructor code here
 			//
 		}
+	private: System::Windows::Forms::DataGridView^  dataGridView1;
+	private: System::Windows::Forms::Label^  label7;
+	private: System::Windows::Forms::Button^  button3;
+	public:
 	private: System::Windows::Forms::Form ^ meniu;
 	protected:
 		/// <summary>
@@ -78,25 +82,29 @@ namespace BaigiamasisSmuilys {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->button3 = (gcnew System::Windows::Forms::Button());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// button2
 			// 
-			this->button2->Font = (gcnew System::Drawing::Font(L"Consolas", 18.25F));
-			this->button2->Location = System::Drawing::Point(129, 325);
+			this->button2->Font = (gcnew System::Drawing::Font(L"Consolas", 14.25F));
+			this->button2->Location = System::Drawing::Point(229, 238);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(214, 54);
+			this->button2->Size = System::Drawing::Size(214, 40);
 			this->button2->TabIndex = 49;
-			this->button2->Text = L"Į meniu";
+			this->button2->Text = L"Į pagr. langą";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &MyForm3::button2_Click);
 			// 
 			// button1
 			// 
-			this->button1->Font = (gcnew System::Drawing::Font(L"Consolas", 24.25F));
-			this->button1->Location = System::Drawing::Point(149, 265);
+			this->button1->Font = (gcnew System::Drawing::Font(L"Consolas", 14.25F));
+			this->button1->Location = System::Drawing::Point(26, 238);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(174, 54);
+			this->button1->Size = System::Drawing::Size(174, 40);
 			this->button1->TabIndex = 48;
 			this->button1->Text = L"Įterpti";
 			this->button1->UseVisualStyleBackColor = true;
@@ -202,13 +210,46 @@ namespace BaigiamasisSmuilys {
 			this->label5->TabIndex = 51;
 			this->label5->Text = L"Išlaidos";
 			// 
+			// dataGridView1
+			// 
+			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView1->Location = System::Drawing::Point(12, 336);
+			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->Size = System::Drawing::Size(460, 224);
+			this->dataGridView1->TabIndex = 52;
+			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Font = (gcnew System::Drawing::Font(L"Consolas", 14.25F));
+			this->label7->ForeColor = System::Drawing::Color::White;
+			this->label7->Location = System::Drawing::Point(98, 563);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(290, 22);
+			this->label7->TabIndex = 53;
+			this->label7->Text = L"Laukiama įterpimo/redagavimo";
+			// 
+			// button3
+			// 
+			this->button3->Font = (gcnew System::Drawing::Font(L"Consolas", 14.25F));
+			this->button3->Location = System::Drawing::Point(128, 284);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(219, 40);
+			this->button3->TabIndex = 54;
+			this->button3->Text = L"Išsaugoti duomenis";
+			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &MyForm3::button3_Click);
+			// 
 			// MyForm3
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->ClientSize = System::Drawing::Size(484, 461);
+			this->ClientSize = System::Drawing::Size(484, 611);
+			this->Controls->Add(this->button3);
+			this->Controls->Add(this->label7);
+			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->textBox5);
 			this->Controls->Add(this->button2);
@@ -224,6 +265,8 @@ namespace BaigiamasisSmuilys {
 			this->Controls->Add(this->label2);
 			this->Name = L"MyForm3";
 			this->Text = L"MyForm3";
+			this->Load += gcnew System::EventHandler(this, &MyForm3::MyForm3_Load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -234,11 +277,22 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 		meniu->Show();
 	}
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+	dataGridView1->Rows->Clear();
+	dataGridView1->Columns->Clear();
+	dataGridView1->Refresh();
+	dataGridView1->Columns->Add("Column", "Vieta");
+	dataGridView1->Columns->Add("Column", "Lentynos");
+	dataGridView1->Columns->Add("Column", "Dydis");
+	dataGridView1->Columns->Add("Column", "Imokos");
+	dataGridView1->Columns->Add("Column", "Islaidos");
 	int a = 0;
 	ifstream fd("Parduotuves.txt");
 	for (size_t i = 0; !fd.eof(); i++)
 	{
 		parduotuves->parduotuves[i].Skait(fd);
+		String^ db_vieta = gcnew String(parduotuves->parduotuves[i].getVieta().c_str());
+		dataGridView1->Rows->Add(db_vieta, parduotuves->parduotuves[i].getLentynos(), parduotuves->parduotuves[i].getDydis(),
+		parduotuves->parduotuves[i].getImokos(), parduotuves->parduotuves[i].getIsmokos());
 		a++;
 	}
 	msclr::interop::marshal_context context;
@@ -252,12 +306,58 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	dydis = int::Parse(textBox3->Text);
 	imokos= int::Parse(textBox4->Text);
 	ismokos = int::Parse(textBox5->Text);
+	String^ db_vieta = gcnew String(vieta.c_str());
+	dataGridView1->Rows->Add(db_vieta, lentynos, dydis, imokos, ismokos);
+	parduotuves->parduotuves[a].Iterpti(vieta, lentynos, dydis, imokos, ismokos);
 	ofstream fs("Parduotuves.txt");
 	for (size_t j = 0; j <= a; j++)
 	{
 		fs << parduotuves->parduotuves[j].getVieta() << ";" << parduotuves->parduotuves[j].getLentynos() << " " << parduotuves->parduotuves[j].getDydis() << " " << parduotuves->parduotuves[j].getImokos() << " " << parduotuves->parduotuves[j].getIsmokos();
 		if (j < a) fs << endl;
 	}
+	label5->Text = "Duomenys issaugoti";
+	Sleep(100);
+	label5->Text = "Laukiama iterpimo/redagavimo";
+}
+private: System::Void MyForm3_Load(System::Object^  sender, System::EventArgs^  e) {
+	dataGridView1->Rows->Clear();
+	dataGridView1->Columns->Clear();
+	dataGridView1->Refresh();
+	dataGridView1->Columns->Add("Column", "Vieta");
+	dataGridView1->Columns->Add("Column", "Lentynos");
+	dataGridView1->Columns->Add("Column", "Dydis");
+	dataGridView1->Columns->Add("Column", "Imokos");
+	dataGridView1->Columns->Add("Column", "Islaidos");
+	std::ifstream fd("Parduotuves.txt");
+	for (size_t i = 0; !fd.eof(); i++)
+	{
+		parduotuves->parduotuves[i].Skait(fd);
+		String^ db_vieta = gcnew String(parduotuves->parduotuves[i].getVieta().c_str());
+		dataGridView1->Rows->Add(db_vieta, parduotuves->parduotuves[i].getLentynos(), parduotuves->parduotuves[i].getDydis(),
+			parduotuves->parduotuves[i].getImokos(), parduotuves->parduotuves[i].getIsmokos());
+	}
+}
+private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
+	int a = 0;
+	msclr::interop::marshal_context context;
+	for (size_t i = 0; i < (dataGridView1->Rows->Count) - 1; i++)
+	{
+		parduotuves->parduotuves[i].setVieta(context.marshal_as<std::string>(dataGridView1->Rows[i]->Cells[0]->Value->ToString()));
+		parduotuves->parduotuves[i].setLentynos(Convert::ToInt32(dataGridView1->Rows[i]->Cells[1]->Value));
+		parduotuves->parduotuves[i].setDydis(Convert::ToInt32(dataGridView1->Rows[i]->Cells[2]->Value));
+		parduotuves->parduotuves[i].setImokos(Convert::ToInt32(dataGridView1->Rows[i]->Cells[3]->Value));
+		parduotuves->parduotuves[i].setIsmokos(Convert::ToInt32(dataGridView1->Rows[i]->Cells[4]->Value));
+		a++;
+	}
+	ofstream fs("Parduotuves.txt");
+	for (size_t j = 0; j < a; j++)
+	{
+		fs << parduotuves->parduotuves[j].getVieta() << ";" << parduotuves->parduotuves[j].getLentynos() << " " << parduotuves->parduotuves[j].getDydis() << " " << parduotuves->parduotuves[j].getImokos() << " " << parduotuves->parduotuves[j].getIsmokos();
+		if (j < a - 1) fs << endl;
+	}
+	label5->Text = "Duomenys issaugoti";
+	Sleep(100);
+	label5->Text = "Laukiama iterpimo/redagavimo";
 }
 };
 }

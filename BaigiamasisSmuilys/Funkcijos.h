@@ -210,6 +210,7 @@ public:
 	}
 	void Skait(std::ifstream &fd);
 	void Spausd(std::ofstream &fs);
+	void Iterpti(std::string vieta, int lentynos, int dydis, int imokos, int ismokos);
 };
 class Prekes
 {

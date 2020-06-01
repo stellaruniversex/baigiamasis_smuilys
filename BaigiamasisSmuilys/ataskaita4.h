@@ -105,11 +105,11 @@ namespace BaigiamasisSmuilys {
 			// button2
 			// 
 			this->button2->Font = (gcnew System::Drawing::Font(L"Consolas", 14));
-			this->button2->Location = System::Drawing::Point(258, 260);
+			this->button2->Location = System::Drawing::Point(254, 260);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(214, 48);
+			this->button2->Size = System::Drawing::Size(218, 48);
 			this->button2->TabIndex = 65;
-			this->button2->Text = L"Grįžti į meniu";
+			this->button2->Text = L"Grįžti į pagr. langą";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &ataskaita4::button2_Click);
 			// 
@@ -120,7 +120,7 @@ namespace BaigiamasisSmuilys {
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(214, 48);
 			this->button1->TabIndex = 64;
-			this->button1->Text = L"Spausdinti ataskaitą";
+			this->button1->Text = L"Generuoti ataskaitą";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &ataskaita4::button1_Click);
 			// 
@@ -206,7 +206,6 @@ namespace BaigiamasisSmuilys {
 			this->name1->Size = System::Drawing::Size(170, 22);
 			this->name1->TabIndex = 54;
 			this->name1->Text = L"Filtruoti pagal:";
-			this->name1->Click += gcnew System::EventHandler(this, &ataskaita4::name1_Click);
 			// 
 			// dataGridView1
 			// 
@@ -238,6 +237,7 @@ namespace BaigiamasisSmuilys {
 			// 
 			// button3
 			// 
+			this->button3->Enabled = false;
 			this->button3->Font = (gcnew System::Drawing::Font(L"Consolas", 12.5F));
 			this->button3->Location = System::Drawing::Point(134, 310);
 			this->button3->Name = L"button3";
@@ -272,6 +272,7 @@ namespace BaigiamasisSmuilys {
 			this->Controls->Add(this->label1);
 			this->Name = L"ataskaita4";
 			this->Text = L"Parduotuviu ataskaita";
+			this->Load += gcnew System::EventHandler(this, &ataskaita4::ataskaita4_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -334,7 +335,23 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 		if (j < a - 1) fs << endl;
 	}
 }
-private: System::Void name1_Click(System::Object^  sender, System::EventArgs^  e) {
+private: System::Void ataskaita4_Load(System::Object^  sender, System::EventArgs^  e) {
+	dataGridView1->Rows->Clear();
+	dataGridView1->Columns->Clear();
+	dataGridView1->Refresh();
+	dataGridView1->Columns->Add("Column", "Vieta");
+	dataGridView1->Columns->Add("Column", "Lentynos");
+	dataGridView1->Columns->Add("Column", "Dydis");
+	dataGridView1->Columns->Add("Column", "Imokos");
+	dataGridView1->Columns->Add("Column", "Islaidos");
+	std::ifstream fd("Parduotuves.txt");
+	for (size_t i = 0; !fd.eof(); i++)
+	{
+		parduotuves->parduotuves[i].Skait(fd);
+		String^ db_vieta = gcnew String(parduotuves->parduotuves[i].getVieta().c_str());
+		dataGridView1->Rows->Add(db_vieta, parduotuves->parduotuves[i].getLentynos(), parduotuves->parduotuves[i].getDydis(),
+		parduotuves->parduotuves[i].getImokos(), parduotuves->parduotuves[i].getIsmokos());
+	}
 }
 };
 }

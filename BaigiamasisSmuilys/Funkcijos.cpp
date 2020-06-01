@@ -94,6 +94,14 @@ void NupirktaPreke::Iterpti(string pavadinimas, string vardas, int kiekis, doubl
 	setKiekis(kiekis);
 	setKaina(kaina);
 }
+void Parduotuve::Iterpti(string vieta, int lentynos, int dydis, int imokos, int ismokos)
+{
+	setVieta(vieta);
+	setLentynos(lentynos);
+	setDydis(dydis);
+	setImokos(imokos);
+	setIsmokos(ismokos);
+}
 
 //void skaitPrekes(Preke prekes[], string txt, int &n)
 //{

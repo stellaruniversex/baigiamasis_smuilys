@@ -34,6 +34,7 @@ namespace BaigiamasisSmuilys {
 	private: System::Windows::Forms::Label^  label7;
 	private: System::Windows::Forms::Button^  button3;
 
+
 	private: System::Windows::Forms::Form ^ meniu;
 
 	protected:
@@ -168,11 +169,10 @@ namespace BaigiamasisSmuilys {
 			// textBox4
 			// 
 			this->textBox4->Font = (gcnew System::Drawing::Font(L"Consolas", 14));
-			this->textBox4->Location = System::Drawing::Point(209, 211);
+			this->textBox4->Location = System::Drawing::Point(304, 210);
 			this->textBox4->MaxLength = 2;
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(34, 29);
-			this->textBox4->TabIndex = 38;
 			// 
 			// label4
 			// 
@@ -243,25 +243,25 @@ namespace BaigiamasisSmuilys {
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(214, 48);
 			this->button1->TabIndex = 46;
-			this->button1->Text = L"Spausdinti ataskaitą";
+			this->button1->Text = L"Generuoti ataskaitą";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm4::button1_Click);
 			// 
 			// button2
 			// 
 			this->button2->Font = (gcnew System::Drawing::Font(L"Consolas", 14));
-			this->button2->Location = System::Drawing::Point(257, 304);
+			this->button2->Location = System::Drawing::Point(249, 304);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(214, 48);
+			this->button2->Size = System::Drawing::Size(222, 48);
 			this->button2->TabIndex = 47;
-			this->button2->Text = L"Grįžti į meniu";
+			this->button2->Text = L"Grįžti į pagr. langą";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &MyForm4::button2_Click);
 			// 
 			// textBox9
 			// 
 			this->textBox9->Font = (gcnew System::Drawing::Font(L"Consolas", 14));
-			this->textBox9->Location = System::Drawing::Point(249, 210);
+			this->textBox9->Location = System::Drawing::Point(264, 210);
 			this->textBox9->MaxLength = 2;
 			this->textBox9->Name = L"textBox9";
 			this->textBox9->Size = System::Drawing::Size(34, 29);
@@ -270,7 +270,7 @@ namespace BaigiamasisSmuilys {
 			// textBox10
 			// 
 			this->textBox10->Font = (gcnew System::Drawing::Font(L"Consolas", 14));
-			this->textBox10->Location = System::Drawing::Point(289, 210);
+			this->textBox10->Location = System::Drawing::Point(210, 210);
 			this->textBox10->Name = L"textBox10";
 			this->textBox10->Size = System::Drawing::Size(48, 29);
 			this->textBox10->TabIndex = 49;
@@ -278,7 +278,7 @@ namespace BaigiamasisSmuilys {
 			// textBox6
 			// 
 			this->textBox6->Font = (gcnew System::Drawing::Font(L"Consolas", 14));
-			this->textBox6->Location = System::Drawing::Point(423, 210);
+			this->textBox6->Location = System::Drawing::Point(344, 211);
 			this->textBox6->Name = L"textBox6";
 			this->textBox6->Size = System::Drawing::Size(48, 29);
 			this->textBox6->TabIndex = 52;
@@ -286,7 +286,7 @@ namespace BaigiamasisSmuilys {
 			// textBox11
 			// 
 			this->textBox11->Font = (gcnew System::Drawing::Font(L"Consolas", 14));
-			this->textBox11->Location = System::Drawing::Point(383, 210);
+			this->textBox11->Location = System::Drawing::Point(396, 211);
 			this->textBox11->MaxLength = 2;
 			this->textBox11->Name = L"textBox11";
 			this->textBox11->Size = System::Drawing::Size(34, 29);
@@ -295,7 +295,7 @@ namespace BaigiamasisSmuilys {
 			// textBox12
 			// 
 			this->textBox12->Font = (gcnew System::Drawing::Font(L"Consolas", 14));
-			this->textBox12->Location = System::Drawing::Point(343, 211);
+			this->textBox12->Location = System::Drawing::Point(436, 211);
 			this->textBox12->MaxLength = 2;
 			this->textBox12->Name = L"textBox12";
 			this->textBox12->Size = System::Drawing::Size(34, 29);
@@ -313,6 +313,7 @@ namespace BaigiamasisSmuilys {
 			// 
 			// button3
 			// 
+			this->button3->Enabled = false;
 			this->button3->Font = (gcnew System::Drawing::Font(L"Consolas", 14));
 			this->button3->Location = System::Drawing::Point(138, 354);
 			this->button3->Name = L"button3";
@@ -368,12 +369,10 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 	this->Hide();
 	meniu->Show();
 }
-private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+private: System::Void MyForm4_Load(System::Object^  sender, System::EventArgs^  e) {
 	dataGridView1->Rows->Clear();
 	dataGridView1->Columns->Clear();
 	dataGridView1->Refresh();
-	ofstream fs("PrekesAtaskaita.txt");
-	dataGridView1->Columns->Add("Column", "ID");
 	dataGridView1->Columns->Add("Column", "Pavadinimas");
 	dataGridView1->Columns->Add("Column", "Gamintojas");
 	dataGridView1->Columns->Add("Column", "Kaina");
@@ -381,6 +380,76 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	dataGridView1->Columns->Add("Column", "Menuo");
 	dataGridView1->Columns->Add("Column", "Diena");
 	dataGridView1->Columns->Add("Column", "Kiekis");
+	std::ifstream fd("Prekes.txt");
+	//msclr::interop::marshal_context context;
+	//string a = context.marshal_as<std::string>(dataGridView1->Rows[0]->Cells[0]->Value);
+	//prekes->prekes[0].setPavadinimas(a);
+	for (size_t i = 0; !fd.eof(); i++)
+	{
+		prekes->prekes[i].Skait(fd);
+		String^ db_pavadinimas = gcnew String(prekes->prekes[i].getPavadinimas().c_str());
+		String^ db_gamintojas = gcnew String(prekes->prekes[i].getGamintojas().c_str());
+		dataGridView1->Rows->Add(db_pavadinimas, db_gamintojas, prekes->prekes[i].getKaina(),
+			prekes->prekes[i].getMetai(), prekes->prekes[i].getMenuo(), prekes->prekes[i].getDiena(), prekes->prekes[i].getKiekis());
+	}
+}
+private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+	dataGridView1->Rows->Clear();
+	dataGridView1->Columns->Clear();
+	dataGridView1->Refresh();
+	ofstream fs("PrekesAtaskaita.txt");
+	dataGridView1->Columns->Add("Column", "Pavadinimas");
+	dataGridView1->Columns->Add("Column", "Gamintojas");
+	dataGridView1->Columns->Add("Column", "Kaina");
+	dataGridView1->Columns->Add("Column", "Metai");
+	dataGridView1->Columns->Add("Column", "Menuo");
+	dataGridView1->Columns->Add("Column", "Diena");
+	dataGridView1->Columns->Add("Column", "Kiekis");
+	msclr::interop::marshal_context context;
+	string pavadinimas = "";
+	string gamintojas = "";
+	// visi kintamieji reikalingi ieskojimui
+	double kainamin = 0;
+	int metaimin = 0;
+	int menuomin = 0;
+	int dienamin = 0;
+	int kiekismin = 0;
+	double kainamax = 0;
+	int metaimax = 0;
+	int menuomax = 0;
+	int dienamax = 0;
+	int kiekismax = 0;
+	bool foundgamintojas = false;
+	bool foundpavadinimas = false;
+	bool foundkaina = false;
+	bool founddatamin = false;
+	bool founddatamax = false;
+	bool foundkiekis = false;
+	pavadinimas = context.marshal_as<std::string>(textBox1->Text);
+	gamintojas = context.marshal_as<std::string>(textBox2->Text);
+	// reikalingi, kad nemetytu FormatException
+	if (textBox3->Text == "") textBox3->Text = "9999";
+	if (textBox4->Text == "") textBox4->Text = "1";
+	if (textBox5->Text == "") textBox5->Text = "0";
+	if (textBox6->Text == "") textBox6->Text = "9999";
+	if (textBox7->Text == "") textBox7->Text = "0";
+	if (textBox8->Text == "") textBox8->Text = "9999";
+	if (textBox9->Text == "") textBox9->Text = "1";
+	if (textBox10->Text == "") textBox10->Text = "0";
+	if (textBox11->Text == "") textBox11->Text = "12";
+	if (textBox12->Text == "") textBox12->Text = "31";
+	kainamin = double::Parse(textBox7->Text);
+	metaimin = int::Parse(textBox10->Text);
+	menuomin = int::Parse(textBox9->Text);
+	dienamin = int::Parse(textBox4->Text);
+	kiekismin = int::Parse(textBox5->Text);
+	kainamax = double::Parse(textBox8->Text);
+	metaimax = int::Parse(textBox6->Text);
+	menuomax = int::Parse(textBox11->Text);
+	dienamax = int::Parse(textBox12->Text);
+	kiekismax = int::Parse(textBox3->Text);
+	String^ db_pavadinimas = gcnew String(pavadinimas.c_str());
+	String^ db_gamintojas = gcnew String(gamintojas.c_str());
 	std::ifstream fd("Prekes.txt");
 	fs << "         Pavadinimas           |      Gamintojas      |  Kaina  | Gal. data | Kiekis" << endl;
 	//msclr::interop::marshal_context context;
@@ -389,51 +458,55 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	for (size_t i = 0; !fd.eof(); i++)
 	{
 		prekes->prekes[i].Skait(fd);
-		String^ db_pavadinimas = gcnew String(prekes->prekes[i].getPavadinimas().c_str());
-		String^ db_gamintojas = gcnew String(prekes->prekes[i].getGamintojas().c_str());
-		dataGridView1->Rows->Add(i, db_pavadinimas, db_gamintojas, prekes->prekes[i].getKaina(),
-		prekes->prekes[i].getMetai(), prekes->prekes[i].getMenuo(), prekes->prekes[i].getDiena(), prekes->prekes[i].getKiekis());
-		fs << setw(30) << prekes->prekes[i].getPavadinimas() << " | " << setw(20) << prekes->prekes[i].getGamintojas() << " | " << setw(7)
-			<< prekes->prekes[i].getKaina() << " | " << prekes->prekes[i].getMetai() << " " << prekes->prekes[i].getMenuo() << " " << setw(2) << prekes->prekes[i].getDiena() << " | "
-			<< prekes->prekes[i].getKiekis() << endl;
+		if (prekes->prekes[i].getPavadinimas().find(pavadinimas) != string::npos) foundpavadinimas = true;
+		if (prekes->prekes[i].getGamintojas().find(gamintojas) != string::npos) foundgamintojas = true;
+		if (prekes->prekes[i].getKaina() >= kainamin && prekes->prekes[i].getKaina() <= kainamax) foundkaina = true;
+		if (prekes->prekes[i].getMetai() > metaimin || prekes->prekes[i].getMetai() == metaimin && prekes->prekes[i].getMenuo() > menuomin || prekes->prekes[i].getMetai() == metaimin && prekes->prekes[i].getMenuo() == menuomin && prekes->prekes[i].getDiena() >= dienamin) founddatamin = true;
+		if (prekes->prekes[i].getMetai() < metaimax || prekes->prekes[i].getMetai() == metaimax && prekes->prekes[i].getMenuo() < menuomax || prekes->prekes[i].getMetai() == metaimax && prekes->prekes[i].getMenuo() == menuomax && prekes->prekes[i].getDiena() <= dienamax) founddatamax = true;
+		if (prekes->prekes[i].getKiekis() >= kiekismin && prekes->prekes[i].getKiekis() <= kiekismax) foundkiekis = true;
+		if (foundpavadinimas == true && foundgamintojas == true && foundkaina == true && founddatamin == true && founddatamax == true && foundkiekis == true)
+		{
+			String^ db_pavadinimas = gcnew String(prekes->prekes[i].getPavadinimas().c_str());
+			String^ db_gamintojas = gcnew String(prekes->prekes[i].getGamintojas().c_str());
+			dataGridView1->Rows->Add(db_pavadinimas, db_gamintojas, prekes->prekes[i].getKaina(),
+				prekes->prekes[i].getMetai(), prekes->prekes[i].getMenuo(), prekes->prekes[i].getDiena(), prekes->prekes[i].getKiekis());
+			fs << setw(30) << prekes->prekes[i].getPavadinimas() << " | " << setw(20) << prekes->prekes[i].getGamintojas() << " | " << setw(7)
+				<< prekes->prekes[i].getKaina() << " | " << prekes->prekes[i].getMetai() << " " << prekes->prekes[i].getMenuo() << " " << setw(2) << prekes->prekes[i].getDiena() << " | "
+				<< prekes->prekes[i].getKiekis() << endl;
+		}
+		// sugrazina bool i pradine padeti
+		foundgamintojas = false;
+		foundpavadinimas = false;
+		foundkaina = false;
+		founddatamin = false;
+		founddatamax = false;
+		foundkiekis = false;
 	}
+	// atstato visus textBox i tuscia lauka
+	textBox1->Text = "";
+	textBox2->Text = "";
+	textBox3->Text = "";
+	textBox4->Text = "";
+	textBox5->Text = "";
+	textBox6->Text = "";
+	textBox7->Text = "";
+	textBox8->Text = "";
+	textBox9->Text = "";
+	textBox10->Text = "";
+	textBox11->Text = "";
+	textBox12->Text = "";
 	fd.close();
-}
-private: System::Void MyForm4_Load(System::Object^  sender, System::EventArgs^  e) {
-	dataGridView1->Rows->Clear();
-	dataGridView1->Columns->Clear();
-	dataGridView1->Refresh();
-	dataGridView1->Columns->Add("Column", "ID");
-	dataGridView1->Columns->Add("Column", "Pavadinimas");
-	dataGridView1->Columns->Add("Column", "Gamintojas");
-	dataGridView1->Columns->Add("Column", "Kaina");
-	dataGridView1->Columns->Add("Column", "Metai");
-	dataGridView1->Columns->Add("Column", "Menuo");
-	dataGridView1->Columns->Add("Column", "Diena");
-	dataGridView1->Columns->Add("Column", "Kiekis");
-	std::ifstream fd("Prekes.txt");
-	//msclr::interop::marshal_context context;
-	//string a = context.marshal_as<std::string>(dataGridView1->Rows[0]->Cells[0]->Value);
-	//prekes->prekes[0].setPavadinimas(a);
-	for (size_t i = 0; !fd.eof(); i++)
-	{
-		prekes->prekes[i].Skait(fd);
-		String^ db_pavadinimas = gcnew String(prekes->prekes[i].getPavadinimas().c_str());
-		String^ db_gamintojas = gcnew String(prekes->prekes[i].getGamintojas().c_str());
-		dataGridView1->Rows->Add(i, db_pavadinimas, db_gamintojas, prekes->prekes[i].getKaina(),
-			prekes->prekes[i].getMetai(), prekes->prekes[i].getMenuo(), prekes->prekes[i].getDiena(), prekes->prekes[i].getKiekis());
-	}
 }
 private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
 	int a = 0;
 	msclr::interop::marshal_context context;
 	for (size_t i = 0; i < (dataGridView1->Rows->Count)-1; i++)
 	{
-	    prekes->prekes[i].setPavadinimas(context.marshal_as<std::string>(dataGridView1->Rows[i]->Cells[1]->Value->ToString()));
-		prekes->prekes[i].setGamintojas(context.marshal_as<std::string>(dataGridView1->Rows[i]->Cells[2]->Value->ToString()));
-		prekes->prekes[i].setKaina(Convert::ToDouble(dataGridView1->Rows[i]->Cells[3]->Value));
-		prekes->prekes[i].setData(Convert::ToInt32(dataGridView1->Rows[i]->Cells[4]->Value), Convert::ToInt32(dataGridView1->Rows[i]->Cells[5]->Value), Convert::ToInt32(dataGridView1->Rows[i]->Cells[6]->Value));
-		prekes->prekes[i].setKiekis(Convert::ToInt32(dataGridView1->Rows[i]->Cells[7]->Value));
+	    prekes->prekes[i].setPavadinimas(context.marshal_as<std::string>(dataGridView1->Rows[i]->Cells[0]->Value->ToString()));
+		prekes->prekes[i].setGamintojas(context.marshal_as<std::string>(dataGridView1->Rows[i]->Cells[1]->Value->ToString()));
+		prekes->prekes[i].setKaina(Convert::ToDouble(dataGridView1->Rows[i]->Cells[2]->Value));
+		prekes->prekes[i].setData(Convert::ToInt32(dataGridView1->Rows[i]->Cells[3]->Value), Convert::ToInt32(dataGridView1->Rows[i]->Cells[4]->Value), Convert::ToInt32(dataGridView1->Rows[i]->Cells[5]->Value));
+		prekes->prekes[i].setKiekis(Convert::ToInt32(dataGridView1->Rows[i]->Cells[6]->Value));
 		a++;
 	}
 	ofstream fs("Prekes.txt");

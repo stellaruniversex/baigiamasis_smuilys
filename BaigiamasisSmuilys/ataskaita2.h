@@ -44,7 +44,7 @@ namespace BaigiamasisSmuilys {
 	private: System::Windows::Forms::Label^  label1;
 	protected:
 	private: System::Windows::Forms::DataGridView^  dataGridView1;
-	private: System::Windows::Forms::ComboBox^  comboBox1;
+
 	private: System::Windows::Forms::Label^  label2;
 	private: System::Windows::Forms::TextBox^  textBox1;
 	private: System::Windows::Forms::Label^  label3;
@@ -73,7 +73,6 @@ namespace BaigiamasisSmuilys {
 		{
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
@@ -104,30 +103,19 @@ namespace BaigiamasisSmuilys {
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridView1->Location = System::Drawing::Point(8, 348);
 			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->ReadOnly = true;
 			this->dataGridView1->Size = System::Drawing::Size(460, 151);
 			this->dataGridView1->TabIndex = 1;
-			// 
-			// comboBox1
-			// 
-			this->comboBox1->AllowDrop = true;
-			this->comboBox1->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
-			this->comboBox1->Font = (gcnew System::Drawing::Font(L"Consolas", 14));
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"Vardą", L"Pavardę", L"Telefoną", L"Gyv. vietą" });
-			this->comboBox1->Location = System::Drawing::Point(254, 57);
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(172, 30);
-			this->comboBox1->TabIndex = 2;
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Consolas", 14));
-			this->label2->Location = System::Drawing::Point(28, 60);
+			this->label2->Location = System::Drawing::Point(135, 59);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(180, 22);
+			this->label2->Size = System::Drawing::Size(190, 22);
 			this->label2->TabIndex = 3;
-			this->label2->Text = L"Rikiuoti pagal...";
+			this->label2->Text = L"Filtruoti pagal...";
 			// 
 			// textBox1
 			// 
@@ -204,11 +192,11 @@ namespace BaigiamasisSmuilys {
 			// button2
 			// 
 			this->button2->Font = (gcnew System::Drawing::Font(L"Consolas", 14));
-			this->button2->Location = System::Drawing::Point(254, 237);
+			this->button2->Location = System::Drawing::Point(245, 237);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(214, 48);
+			this->button2->Size = System::Drawing::Size(223, 48);
 			this->button2->TabIndex = 49;
-			this->button2->Text = L"Grįžti į meniu";
+			this->button2->Text = L"Grįžti į pagr. langą";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &ataskaita2::button2_Click);
 			// 
@@ -219,12 +207,13 @@ namespace BaigiamasisSmuilys {
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(214, 48);
 			this->button1->TabIndex = 48;
-			this->button1->Text = L"Spausdinti ataskaitą";
+			this->button1->Text = L"Generuoti ataskaitą";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &ataskaita2::button1_Click);
 			// 
 			// button3
 			// 
+			this->button3->Enabled = false;
 			this->button3->Font = (gcnew System::Drawing::Font(L"Consolas", 12.5F));
 			this->button3->Location = System::Drawing::Point(139, 291);
 			this->button3->Name = L"button3";
@@ -253,17 +242,35 @@ namespace BaigiamasisSmuilys {
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label2);
-			this->Controls->Add(this->comboBox1);
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->label1);
 			this->Name = L"ataskaita2";
 			this->Text = L"Pirkeju ataskaita";
+			this->Load += gcnew System::EventHandler(this, &ataskaita2::ataskaita2_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
+private: System::Void ataskaita2_Load(System::Object^  sender, System::EventArgs^  e) {
+	dataGridView1->Rows->Clear();
+	dataGridView1->Columns->Clear();
+	dataGridView1->Refresh();
+	dataGridView1->Columns->Add("Column", "Vardas");
+	dataGridView1->Columns->Add("Column", "Pavarde");
+	dataGridView1->Columns->Add("Column", "Telefonas");
+	dataGridView1->Columns->Add("Column", "Gyv. vieta");
+	std::ifstream fd("Pirkejai.txt");
+	for (size_t i = 0; !fd.eof(); i++)
+	{
+		pirkejai->pirkejai[i].Skait(fd);
+		String^ db_vardas = gcnew String(pirkejai->pirkejai[i].getVardas().c_str());
+		String^ db_pavarde = gcnew String(pirkejai->pirkejai[i].getPavarde().c_str());
+		String^ db_gyvvieta = gcnew String(pirkejai->pirkejai[i].getGyvVieta().c_str());
+		dataGridView1->Rows->Add(db_vardas, db_pavarde, pirkejai->pirkejai[i].getTelefonas(), db_gyvvieta);
+	}
+}
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
 	this->Hide();
 	meniu->Show();
@@ -272,11 +279,11 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	dataGridView1->Rows->Clear();
 	dataGridView1->Columns->Clear();
 	dataGridView1->Refresh();
-	std::ofstream fs("PirkejaiAtaskaita.txt");
 	dataGridView1->Columns->Add("Column", "Vardas");
 	dataGridView1->Columns->Add("Column", "Pavarde");
 	dataGridView1->Columns->Add("Column", "Telefonas");
 	dataGridView1->Columns->Add("Column", "Gyv. vieta");
+	std::ofstream fs("PirkejaiAtaskaita.txt");
 	std::ifstream fd("Pirkejai.txt");
 	fs << "    Vardas      |    Pavarde   | Telefonas  | Gyv. vieta" << endl;
 	for (size_t i = 0; !fd.eof(); i++)
@@ -289,16 +296,17 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 		fs << setw(15) << pirkejai->pirkejai[i].getVardas() << " | " << setw(12) << pirkejai->pirkejai[i].getPavarde()
 			<< " | " << setw(10) << pirkejai->pirkejai[i].getTelefonas() << " | " << pirkejai->pirkejai[i].getGyvVieta() << endl;
 	}
+	fd.close();
 }
 private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
 	int a = 0;
 	msclr::interop::marshal_context context;
 	for (size_t i = 0; i < (dataGridView1->Rows->Count) - 1; i++)
 	{
-		pirkejai->pirkejai[i].setVardas(context.marshal_as<std::string>(dataGridView1->Rows[i]->Cells[0]->Value->ToString()));
-		pirkejai->pirkejai[i].setPavarde(context.marshal_as<std::string>(dataGridView1->Rows[i]->Cells[1]->Value->ToString()));
-		pirkejai->pirkejai[i].setTelefonas(Convert::ToInt64(dataGridView1->Rows[i]->Cells[2]->Value));
-		pirkejai->pirkejai[i].setGyvVieta(context.marshal_as<std::string>(dataGridView1->Rows[i]->Cells[3]->Value->ToString()));
+		pirkejai->pirkejai[i].setVardas(context.marshal_as<std::string>(dataGridView1->Rows[i]->Cells[1]->Value->ToString()));
+		pirkejai->pirkejai[i].setPavarde(context.marshal_as<std::string>(dataGridView1->Rows[i]->Cells[2]->Value->ToString()));
+		pirkejai->pirkejai[i].setTelefonas(Convert::ToInt64(dataGridView1->Rows[i]->Cells[3]->Value));
+		pirkejai->pirkejai[i].setGyvVieta(context.marshal_as<std::string>(dataGridView1->Rows[i]->Cells[4]->Value->ToString()));
 		a++;
 	}
 	ofstream fs("Pirkejai.txt");

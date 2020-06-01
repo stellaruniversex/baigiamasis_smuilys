@@ -1,5 +1,4 @@
 Vardas: Zilvinas Smuilys
       Prekes pavadinimas        |  Kaina  | Kiekis
-                           asdf |   12.34 | 8
-                           bdfg |   23.45 | 10
-Galutine prekiu suma: 333.22
+                Kiauliena, 500g |    2.99 | 3
+Galutine prekiu suma: 8.97
