@@ -239,7 +239,7 @@ namespace BaigiamasisSmuilys {
 
 		}
 #pragma endregion
-private: System::Void ataskaita2_Load(System::Object^  sender, System::EventArgs^  e) {
+private: System::Void ataskaita2_Load(System::Object^  sender, System::EventArgs^  e) { // paruošia formą naudojimui ir įdeda visą pirkėjų sąrašą
 	dataGridView1->Rows->Clear();
 	dataGridView1->Columns->Clear();
 	dataGridView1->Refresh();
@@ -261,7 +261,7 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 	this->Hide();
 	meniu->Show();
 }
-private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) { // visas funkcionalumas čia
 	dataGridView1->Rows->Clear();
 	dataGridView1->Columns->Clear();
 	dataGridView1->Refresh();
@@ -272,8 +272,10 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	ofstream fs("PirkejaiAtaskaita.txt");
 	ifstream fd("Pirkejai.txt");
 	msclr::interop::marshal_context context;
+	// kintamieji
 	string vardas = "";
 	string pavarde = "";
+	// reikia long long, kad visą numerį būtų galima įtalpinti
 	long long int telefonas = 0;
 	long long int telefonasmax = 0;
 	string gyvvieta = "";
@@ -295,7 +297,8 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	fs << "    Vardas      |    Pavarde   | Telefonas  | Gyv. vieta" << endl;
 	for (size_t i = 0; !fd.eof(); i++)
 	{
-		pirkejai->pirkejai[i].Skait(fd);
+		pirkejai->pirkejai[i].Skait(fd); // skaito iš Pirkejai.txt failo
+		// tikrina, ar įrašas visas sąlygas patenkina
 		if (pirkejai->pirkejai[i].getVardas().find(vardas) != string::npos) foundvardas = true;
 		if (pirkejai->pirkejai[i].getPavarde().find(pavarde) != string::npos) foundpavarde = true;
 		if (pirkejai->pirkejai[i].getTelefonas() >= telefonas && pirkejai->pirkejai[i].getTelefonas() <= telefonasmax) foundtelefonas = true;
@@ -307,7 +310,7 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 			String^ db_gyvvieta = gcnew String(pirkejai->pirkejai[i].getGyvVieta().c_str());
 			dataGridView1->Rows->Add(db_vardas, db_pavarde, pirkejai->pirkejai[i].getTelefonas(), db_gyvvieta);
 			fs << setw(15) << pirkejai->pirkejai[i].getVardas() << " | " << setw(12) << pirkejai->pirkejai[i].getPavarde()
-				<< " | " << setw(10) << pirkejai->pirkejai[i].getTelefonas() << " | " << pirkejai->pirkejai[i].getGyvVieta() << endl;
+				<< " | " << setw(10) << pirkejai->pirkejai[i].getTelefonas() << " | " << pirkejai->pirkejai[i].getGyvVieta() << endl; // generuoja ataskaitą PirkejaiAtaskaita.txt faile
 		}
 		// sugrazina bool i pradine padeti
 		foundvardas = false;
@@ -316,10 +319,10 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 		foundgyvvieta = false;
 	}
 	// atstato visus textBox i tuscia lauka
-	textBox1->Text = "";
-	textBox2->Text = "";
-	textBox3->Text = "";
-	textBox4->Text = "";
+	textBox1->Clear();
+	textBox2->Clear();
+	textBox3->Clear();
+	textBox4->Clear();
 	fd.close();
 }
 };

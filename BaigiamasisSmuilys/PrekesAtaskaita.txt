@@ -1,11 +1,4 @@
          Pavadinimas           |      Gamintojas      |  Kaina  | Gal. data | Kiekis
    Mineralinis vanduo, 1000 ml |             UAB Aqua |    1.99 | 2021 6 27 | 11
-Mineralinis vanduo, 1000 ml 6x |             UAB Aqua |   10.99 | 2021 6 27 | 6
-              Kompiuteris X860 |       UAB Elektronas |  399.99 | 2999 1  1 | 9
                Kiauliena, 500g |       UAB Mesininkai |    2.99 | 2020 6  1 | 26
               Kiauliena, 1000g |       UAB Mesininkai |    4.99 | 2020 6  2 | 10
-               Sokoladas, 100g |       UAB Saldumynai |    0.99 | 2021 4  5 | 16
-             Saldainiai, 250 g |       UAB Saldumynai |    1.99 | 2022 5 29 | 5
-              Kompiuteris X880 |       UAB Elektronas |  499.99 | 2999 1  1 | 3
-             Saldainiai, 500 g |       UAB Saldumynai |    3.49 | 2022 6 22 | 8
-               Virdulys 2000 W |          UAB Virtuve |   49.99 | 2999 1  1 | 6

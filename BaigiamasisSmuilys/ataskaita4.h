@@ -359,7 +359,8 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	fs << "            Vieta              | Lentynu sk.  | Dydis | Imokos  | Islaidos" << endl;
 	for (size_t i = 0; !fd.eof(); i++)
 	{
-		parduotuves->parduotuves[i].Skait(fd);
+		parduotuves->parduotuves[i].Skait(fd); // skaito iš Parduotuves.txt failo
+		// tikrina, ar įrašas visas sąlygas patenkina
 		if (parduotuves->parduotuves[i].getVieta().find(vieta) != string::npos) foundvieta = true;
 		if (parduotuves->parduotuves[i].getLentynos() >= lentynosmin && parduotuves->parduotuves[i].getLentynos() <= lentynosmax) foundlentynos = true;
 		if (parduotuves->parduotuves[i].getDydis() >= dydismin && parduotuves->parduotuves[i].getDydis() <= dydismax) founddydis = true;
@@ -370,7 +371,8 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 		{
 			dataGridView1->Rows->Add(db_vieta, parduotuves->parduotuves[i].getLentynos(), parduotuves->parduotuves[i].getDydis(),
 				parduotuves->parduotuves[i].getImokos(), parduotuves->parduotuves[i].getIsmokos());
-			fs << setw(30) << parduotuves->parduotuves[i].getVieta() << " | " << setw(12) << parduotuves->parduotuves[i].getLentynos() << " | " << setw(5) << parduotuves->parduotuves[i].getDydis() << " | " << setw(7) << parduotuves->parduotuves[i].getImokos() << " | " << parduotuves->parduotuves[i].getIsmokos() << endl;
+			fs << setw(30) << parduotuves->parduotuves[i].getVieta() << " | " << setw(12) << parduotuves->parduotuves[i].getLentynos() << " | " << setw(5) 
+				<< parduotuves->parduotuves[i].getDydis() << " | " << setw(7) << parduotuves->parduotuves[i].getImokos() << " | " << parduotuves->parduotuves[i].getIsmokos() << endl; // generuoja ataskaitą ParduotuvesAtaskaita.txt faile
 		}
 		foundvieta = false;
 		foundlentynos = false;
@@ -378,18 +380,18 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 		foundimokos = false;
 		foundismokos = false;
 	}
-	textBox1->Text = "";
-	textBox2->Text = "";
-	textBox3->Text = "";
-	textBox4->Text = "";
-	textBox5->Text = "";
-	textBox6->Text = "";
-	textBox7->Text = "";
-	textBox8->Text = "";
-	textBox9->Text = "";
+	textBox1->Clear();
+	textBox2->Clear();
+	textBox3->Clear();
+	textBox4->Clear();
+	textBox5->Clear();
+	textBox6->Clear();
+	textBox7->Clear();
+	textBox8->Clear();
+	textBox9->Clear();
 	fd.close();
 }
-private: System::Void ataskaita4_Load(System::Object^  sender, System::EventArgs^  e) {
+private: System::Void ataskaita4_Load(System::Object^  sender, System::EventArgs^  e) { // paruošia formą naudojimui ir įdeda visą parduotuvių sąrašą
 	dataGridView1->Rows->Clear();
 	dataGridView1->Columns->Clear();
 	dataGridView1->Refresh();

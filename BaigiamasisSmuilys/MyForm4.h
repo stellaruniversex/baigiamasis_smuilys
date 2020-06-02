@@ -356,7 +356,7 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 	this->Hide();
 	meniu->Show();
 }
-private: System::Void MyForm4_Load(System::Object^  sender, System::EventArgs^  e) {
+private: System::Void MyForm4_Load(System::Object^  sender, System::EventArgs^  e) { // paruošia formą naudojimui ir įdeda visą prekių sąrašą
 	dataGridView1->Rows->Clear();
 	dataGridView1->Columns->Clear();
 	dataGridView1->Refresh();
@@ -444,7 +444,8 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	//prekes->prekes[0].setPavadinimas(a);
 	for (size_t i = 0; !fd.eof(); i++)
 	{
-		prekes->prekes[i].Skait(fd);
+		prekes->prekes[i].Skait(fd); // skaito iš Prekes.txt
+		// tikrina, ar įrašas visas sąlygas patenkina
 		if (prekes->prekes[i].getPavadinimas().find(pavadinimas) != string::npos) foundpavadinimas = true;
 		if (prekes->prekes[i].getGamintojas().find(gamintojas) != string::npos) foundgamintojas = true;
 		if (prekes->prekes[i].getKaina() >= kainamin && prekes->prekes[i].getKaina() <= kainamax) foundkaina = true;
@@ -459,7 +460,7 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 				prekes->prekes[i].getMetai(), prekes->prekes[i].getMenuo(), prekes->prekes[i].getDiena(), prekes->prekes[i].getKiekis());
 			fs << setw(30) << prekes->prekes[i].getPavadinimas() << " | " << setw(20) << prekes->prekes[i].getGamintojas() << " | " << setw(7)
 				<< prekes->prekes[i].getKaina() << " | " << prekes->prekes[i].getMetai() << " " << prekes->prekes[i].getMenuo() << " " << setw(2) << prekes->prekes[i].getDiena() << " | "
-				<< prekes->prekes[i].getKiekis() << endl;
+				<< prekes->prekes[i].getKiekis() << endl; // generuoja ataskaitą PrekesAtaskaita.txt faile
 		}
 		// sugrazina bool i pradine padeti
 		foundgamintojas = false;
@@ -470,18 +471,18 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 		foundkiekis = false;
 	}
 	// atstato visus textBox i tuscia lauka
-	textBox1->Text = "";
-	textBox2->Text = "";
-	textBox3->Text = "";
-	textBox4->Text = "";
-	textBox5->Text = "";
-	textBox6->Text = "";
-	textBox7->Text = "";
-	textBox8->Text = "";
-	textBox9->Text = "";
-	textBox10->Text = "";
-	textBox11->Text = "";
-	textBox12->Text = "";
+	textBox1->Clear();
+	textBox2->Clear();
+	textBox3->Clear();
+	textBox4->Clear();
+	textBox5->Clear();
+	textBox6->Clear();
+	textBox7->Clear();
+	textBox8->Clear();
+	textBox9->Clear();
+	textBox10->Clear();
+	textBox11->Clear();
+	textBox12->Clear();
 	fd.close();
 }
 };

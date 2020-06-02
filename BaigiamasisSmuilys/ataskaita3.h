@@ -264,11 +264,10 @@ namespace BaigiamasisSmuilys {
 		this->Hide();
 		meniu->Show();
 	}
-	private: System::Void ataskaita3_Load(System::Object^  sender, System::EventArgs^  e) {
+	private: System::Void ataskaita3_Load(System::Object^  sender, System::EventArgs^  e) { // paruošia formą naudojimui ir įdeda visą nup. prekių sąrašą
 		dataGridView1->Rows->Clear();
 		dataGridView1->Columns->Clear();
 		dataGridView1->Refresh();
-		//skaitPrekes(prekes, "Prekes.txt", a);
 		std::ifstream fd("NPrekes.txt");
 		dataGridView1->Columns->Add("Column", "Pavadinimas");
 		dataGridView1->Columns->Add("Column", "Vardas");
@@ -282,11 +281,10 @@ namespace BaigiamasisSmuilys {
 			dataGridView1->Rows->Add(db_pavadinimas, db_vardas, nupirktos->nupirktos[i].getKaina(), nupirktos->nupirktos[i].getKiekis());
 		}
 	}
-private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) { // visas funkcionalumas čia
 	dataGridView1->Rows->Clear();
 	dataGridView1->Columns->Clear();
 	dataGridView1->Refresh();
-	//skaitPrekes(prekes, "Prekes.txt", a);
 	ofstream fs("NPrekesAtaskaita.txt");
 	ifstream fd("NPrekes.txt");
 	msclr::interop::marshal_context context;
@@ -318,7 +316,8 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	fs << "          Pavadinimas          |        Vardas        | Kaina  | Kiekis" << endl;
 	for (size_t i = 0; !fd.eof(); i++)
 	{
-		nupirktos->nupirktos[i].Skait(fd);
+		nupirktos->nupirktos[i].Skait(fd); // skaito iš NPrekes.txt failo
+		// tikrina, ar įrašas visas sąlygas patenkina
 		if (nupirktos->nupirktos[i].getPavadinimas().find(pavadinimas) != string::npos) foundpavadinimas = true;
 		if (nupirktos->nupirktos[i].getVardas().find(vardas) != string::npos) foundvardas = true;
 		if (nupirktos->nupirktos[i].getKaina() >= kainamin && nupirktos->nupirktos[i].getKaina() <= kainamax) foundkaina = true;
@@ -328,7 +327,7 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 			String^ db_pavadinimas = gcnew String(nupirktos->nupirktos[i].getPavadinimas().c_str());
 			String^ db_vardas = gcnew String(nupirktos->nupirktos[i].getVardas().c_str());
 			dataGridView1->Rows->Add(db_pavadinimas, db_vardas, nupirktos->nupirktos[i].getKaina(), nupirktos->nupirktos[i].getKiekis());
-			fs << setw(30) << nupirktos->nupirktos[i].getPavadinimas() << " | " << setw(20) << nupirktos->nupirktos[i].getVardas() << " | " << setw(6) << nupirktos->nupirktos[i].getKaina() << " | " << nupirktos->nupirktos[i].getKiekis() << endl;
+			fs << setw(30) << nupirktos->nupirktos[i].getPavadinimas() << " | " << setw(20) << nupirktos->nupirktos[i].getVardas() << " | " << setw(6) << nupirktos->nupirktos[i].getKaina() << " | " << nupirktos->nupirktos[i].getKiekis() << endl; // generuoja ataskaitą NPrekesAtaskaita.txt faile
 		}
 		// sugrazina bool i pradine padeti
 		foundpavadinimas = false;
@@ -337,12 +336,12 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 		foundkiekis = false;
 	}
 	// atstato visus textBox i tuscia lauka
-	textBox1->Text = "";
-	textBox2->Text = "";
-	textBox3->Text = "";
-	textBox4->Text = "";
-	textBox5->Text = "";
-	textBox6->Text = "";
+	textBox1->Clear();
+	textBox2->Clear();
+	textBox3->Clear();
+	textBox4->Clear();
+	textBox5->Clear();
+	textBox6->Clear();
 	fd.close();
 }
 };

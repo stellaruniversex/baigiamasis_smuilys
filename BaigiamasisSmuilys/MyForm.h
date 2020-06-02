@@ -328,6 +328,7 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 		a++;
 	}
 	msclr::interop::marshal_context context;
+	// visi kintamieji
 	string pavadinimas = "";
 	string gamintojas = "";
 	double kaina = 0;
@@ -335,6 +336,7 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	int menuo = 0;
 	int diena = 0;
 	int kiekis = 0;
+	// skaito kintamuosius iš textBox
 	pavadinimas = context.marshal_as<std::string>(textBox1->Text);
 	gamintojas = context.marshal_as<std::string>(textBox2->Text);
 	kaina = double::Parse(textBox3->Text);
@@ -342,12 +344,13 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	menuo = int::Parse(textBox6->Text);
 	diena = int::Parse(textBox7->Text);
 	kiekis = int::Parse(textBox5->Text);
+	// pakeičia std::string į System::String, kad būtų galima įterpti į dataGridView
 	String^ db_pavadinimas = gcnew String(pavadinimas.c_str());
 	String^ db_gamintojas = gcnew String(gamintojas.c_str());
-	dataGridView1->Rows->Add(db_pavadinimas, db_gamintojas, kaina, metai, menuo, diena, kiekis);
-	prekes->prekes[a].Iterpti(pavadinimas, gamintojas, kaina, 
-		metai, menuo, diena, kiekis);
+	dataGridView1->Rows->Add(db_pavadinimas, db_gamintojas, kaina, metai, menuo, diena, kiekis); // įterpia naują prekę į dataGridView
+	prekes->prekes[a].Iterpti(pavadinimas, gamintojas, kaina, metai, menuo, diena, kiekis); // įterpia naują prekę į masyvą
 	ofstream fs("Prekes.txt");
+	// išspausdina gautą sąrašą į Prekes.txt failą
 	for (size_t j = 0; j <= a; j++)
 	{
 		fs << prekes->prekes[j].getPavadinimas() << ";" << prekes->prekes[j].getGamintojas() << ";" << prekes->prekes[j].getKaina() << " " << prekes->prekes[j].getMetai()

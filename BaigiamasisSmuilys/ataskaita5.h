@@ -200,7 +200,7 @@ namespace BaigiamasisSmuilys {
 			// 
 			// button2
 			// 
-			this->button2->Font = (gcnew System::Drawing::Font(L"Consolas", 18.25F));
+			this->button2->Font = (gcnew System::Drawing::Font(L"Consolas", 14.25F));
 			this->button2->Location = System::Drawing::Point(16, 167);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(204, 40);
@@ -211,12 +211,12 @@ namespace BaigiamasisSmuilys {
 			// 
 			// button3
 			// 
-			this->button3->Font = (gcnew System::Drawing::Font(L"Consolas", 18.25F));
+			this->button3->Font = (gcnew System::Drawing::Font(L"Consolas", 14.25F));
 			this->button3->Location = System::Drawing::Point(253, 167);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(204, 40);
 			this->button3->TabIndex = 36;
-			this->button3->Text = L"Į meniu";
+			this->button3->Text = L"Į pagr. langą";
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &ataskaita5::button3_Click);
 			// 
@@ -255,14 +255,14 @@ namespace BaigiamasisSmuilys {
 			this->Controls->Add(this->label1);
 			this->Name = L"ataskaita5";
 			this->Text = L"Kvitu israsymas";
+			this->Load += gcnew System::EventHandler(this, &ataskaita5::ataskaita5_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
-			this->Load += gcnew System::EventHandler(this, &ataskaita5::ataskaita5_Load);
 
 		}
 #pragma endregion
-private: System::Void ataskaita5_Load(System::Object^  sender, System::EventArgs^  e) {
+private: System::Void ataskaita5_Load(System::Object^  sender, System::EventArgs^  e) { // paruošia formą naudojimui
 	dataGridView1->Rows->Clear();
 	dataGridView1->Columns->Clear();
 	dataGridView1->Refresh();
@@ -270,25 +270,29 @@ private: System::Void ataskaita5_Load(System::Object^  sender, System::EventArgs
 	dataGridView1->Columns->Add("Column", "Kaina");
 	dataGridView1->Columns->Add("Column", "Kiekis");
 }
-private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
+private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) { // uždaro langą
 	this->Hide();
 	meniu->Show();
 }
-private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) { // įterpia naują prekę į sąrašą
+	// kintamieji
 	string pavadinimas = "";
 	double kaina = 0;
 	int kiekis = 0;
 	msclr::interop::marshal_context context;
+	// nuskaito kintamuosius iš textBox
 	pavadinimas = context.marshal_as<std::string>(textBox1->Text);
 	kaina = double::Parse(textBox2->Text);
 	kiekis = int::Parse(textBox3->Text);
+	// išvalo TextBox
 	textBox1->Clear();
 	textBox2->Clear();
 	textBox3->Clear();
+	// reikalingas, kad veiktų string įterpimas į dataGridView
 	String^ db_pavadinimas = gcnew String(pavadinimas.c_str());
 	dataGridView1->Rows->Add(db_pavadinimas, kaina, kiekis);
 }
-private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) { // išspausdina kvitą
 	ofstream fs("Kvitas.txt");
 	string vardas = "";
 	double value = 0;

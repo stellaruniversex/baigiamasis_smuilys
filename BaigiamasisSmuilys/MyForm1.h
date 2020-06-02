@@ -283,6 +283,7 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	dataGridView1->Columns->Add("Column", "Gyv. vieta");
 	int a = 0;
 	ifstream fd("Pirkejai.txt");
+	// įterpia viska iš sąrašo į dataGridView
 	for (size_t i = 0; !fd.eof(); i++)
 	{
 		pirkejai->pirkejai[i].Skait(fd);
@@ -293,6 +294,7 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 		a++;
 	}
 	msclr::interop::marshal_context context;
+	// kintamieji
 	string vardas = "";
 	string pavarde = "";
 	string gyvenamoji = "";
@@ -323,6 +325,7 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
 	int a = 0;
 	msclr::interop::marshal_context context;
+	// įterpia viską į dataGridView
 	for (size_t i = 0; i < (dataGridView1->Rows->Count) - 1; i++)
 	{
 		pirkejai->pirkejai[i].setVardas(context.marshal_as<std::string>(dataGridView1->Rows[i]->Cells[0]->Value->ToString()));
