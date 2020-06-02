@@ -3,7 +3,6 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
-#include <cmath>
 #include <string>
 
 class Preke

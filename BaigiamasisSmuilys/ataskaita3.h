@@ -345,23 +345,5 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	textBox6->Text = "";
 	fd.close();
 }
-//private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
-//	int a = 0;
-//	msclr::interop::marshal_context context;
-//	for (size_t i = 0; i < (dataGridView1->Rows->Count) - 1; i++)
-//	{
-//		nupirktos->nupirktos[i].setPavadinimas(context.marshal_as<std::string>(dataGridView1->Rows[i]->Cells[0]->Value->ToString()));
-//		nupirktos->nupirktos[i].setVardas(context.marshal_as<std::string>(dataGridView1->Rows[i]->Cells[1]->Value->ToString()));
-//		nupirktos->nupirktos[i].setKaina(Convert::ToDouble(dataGridView1->Rows[i]->Cells[2]->Value));
-//		nupirktos->nupirktos[i].setKiekis(Convert::ToInt32(dataGridView1->Rows[i]->Cells[3]->Value));
-//		a++;
-//	}
-//	ofstream fs("NPrekes.txt");
-//	for (size_t j = 0; j < a; j++)
-//	{
-//		fs << nupirktos->nupirktos[j].getPavadinimas() << ";" << nupirktos->nupirktos[j].getVardas() << ";" << nupirktos->nupirktos[j].getKaina() << " " << nupirktos->nupirktos[j].getKiekis();
-//		if (j < a - 1) fs << endl;
-//	}
-//}
 };
 }

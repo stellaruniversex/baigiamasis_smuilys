@@ -1,6 +1,14 @@
-﻿  Menui.cpp
+﻿  Funkcijos.cpp
+  Menui.cpp
+  MyForm.cpp
+  MyForm1.cpp
   MyForm2.cpp
   MyForm3.cpp
+  MyForm4.cpp
+  ataskaita2.cpp
+  ataskaita3.cpp
+  ataskaita4.cpp
+  ataskaita5.cpp
   Generating Code...
   about.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   BaigiamasisSmuilys.vcxproj -> C:\Users\PC\Documents\bd\x64\Debug\BaigiamasisSmuilys.exe

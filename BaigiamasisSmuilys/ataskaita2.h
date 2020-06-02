@@ -322,23 +322,5 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	textBox4->Text = "";
 	fd.close();
 }
-//private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
-//	int a = 0;
-//	msclr::interop::marshal_context context;
-//	for (size_t i = 0; i < (dataGridView1->Rows->Count) - 1; i++)
-//	{
-//		pirkejai->pirkejai[i].setVardas(context.marshal_as<std::string>(dataGridView1->Rows[i]->Cells[1]->Value->ToString()));
-//		pirkejai->pirkejai[i].setPavarde(context.marshal_as<std::string>(dataGridView1->Rows[i]->Cells[2]->Value->ToString()));
-//		pirkejai->pirkejai[i].setTelefonas(Convert::ToInt64(dataGridView1->Rows[i]->Cells[3]->Value));
-//		pirkejai->pirkejai[i].setGyvVieta(context.marshal_as<std::string>(dataGridView1->Rows[i]->Cells[4]->Value->ToString()));
-//		a++;
-//	}
-//	ofstream fs("Pirkejai.txt");
-//	for (size_t j = 0; j < a; j++)
-//	{
-//		fs << pirkejai->pirkejai[j].getVardas() << ";" << pirkejai->pirkejai[j].getPavarde() << ";" << pirkejai->pirkejai[j].getGyvVieta() << ";" << pirkejai->pirkejai[j].getTelefonas();
-//		if (j < a-1) fs << endl;
-//	}
-//}
 };
 }
