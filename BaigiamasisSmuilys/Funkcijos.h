@@ -17,7 +17,6 @@ private:
 	int Diena;
 	int Kiekis;
 public:
-	//std::ifstream fd;
 	void setPavadinimas(std::string pavadinimas)
 	{
 		Pavadinimas = pavadinimas;
@@ -70,7 +69,6 @@ public:
 	}
 	void Skait(std::ifstream &fd);
 	void Iterpti(std::string pavadinimas, std::string gamintojas, double kaina, int metai, int menuo, int diena, int kiekis);
-	void Spausd(std::ofstream &fs);
 };
 class Pirkejas
 {
@@ -114,7 +112,6 @@ public:
 	}
 	void Skait(std::ifstream &fd);
 	void Iterpti(std::string vardas, std::string pavarde, int telefonas, std::string gyvvieta);
-	void Spausd(std::ofstream &fs);
 };
 class NupirktaPreke
 {
@@ -157,7 +154,6 @@ public:
 		Kaina = kaina;
 	}
 	void Skait(std::ifstream &fd);
-	void Spausd(std::ofstream &fs);
 	void Iterpti(std::string pavadinimas, std::string vardas, int kiekis, double kaina);
 };
 class Parduotuve
@@ -209,7 +205,6 @@ public:
 		Ismokos = ismokos;
 	}
 	void Skait(std::ifstream &fd);
-	void Spausd(std::ofstream &fs);
 	void Iterpti(std::string vieta, int lentynos, int dydis, int imokos, int ismokos);
 };
 class Prekes
@@ -232,11 +227,3 @@ class Parduotuves
 public:
 	Parduotuve parduotuves[2048];
 };
-// external variables
-//int a;
-//int b;
-//int c;
-//int d;
-//int e;
-//int f;
-//Preke prekes[256];

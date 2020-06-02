@@ -241,7 +241,7 @@ namespace BaigiamasisSmuilys {
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->label2);
 			this->Name = L"MyForm2";
-			this->Text = L"MyForm2";
+			this->Text = L"Nup. prekiu iterpimas/redagavimas";
 			this->Load += gcnew System::EventHandler(this, &MyForm2::MyForm2_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);

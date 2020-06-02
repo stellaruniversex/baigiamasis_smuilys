@@ -2,3 +2,4 @@
 8 Kauno g., Klaipeda;60 900 75000 80000
 234 Naujoji g., Vilnius;198 2200 420000 405000
 456 Zemoji g., Panevezys;100 1000 150000 140000
+114 Senoji g., Klaipeda;90 1150 120000 100000

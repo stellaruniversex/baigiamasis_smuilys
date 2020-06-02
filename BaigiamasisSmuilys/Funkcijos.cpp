@@ -21,10 +21,6 @@ void Preke::Skait(ifstream &fd)
 	setKiekis(kiekis);
 	fd.ignore(80, '\n');
 }
-void Preke::Spausd(ofstream &fs)
-{
-
-}
 void Pirkejas::Skait(ifstream &fd)
 {
 	string v = "";
@@ -101,18 +97,4 @@ void Parduotuve::Iterpti(string vieta, int lentynos, int dydis, int imokos, int 
 	setDydis(dydis);
 	setImokos(imokos);
 	setIsmokos(ismokos);
-}
-
-//void skaitPrekes(Preke prekes[], string txt, int &n)
-//{
-	//ifstream fd(txt);
-	//for (size_t i = 0; !fd.eof(); i++)
-	//{
-		//prekes[i].Skait(fd);
-		//n++;
-	//}
-//}
-void spausdintiPrekes()
-{
-
 }

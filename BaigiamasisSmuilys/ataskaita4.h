@@ -41,7 +41,11 @@ namespace BaigiamasisSmuilys {
 	private: System::Windows::Forms::DataGridView^  dataGridView1;
 	private: System::Windows::Forms::TextBox^  textBox5;
 	private: System::Windows::Forms::Label^  label6;
-	private: System::Windows::Forms::Button^  button3;
+
+	private: System::Windows::Forms::TextBox^  textBox6;
+	private: System::Windows::Forms::TextBox^  textBox7;
+	private: System::Windows::Forms::TextBox^  textBox8;
+	private: System::Windows::Forms::TextBox^  textBox9;
 	private: System::Windows::Forms::Form ^ meniu;
 
 	protected:
@@ -88,7 +92,10 @@ namespace BaigiamasisSmuilys {
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox9 = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -127,10 +134,9 @@ namespace BaigiamasisSmuilys {
 			// textBox4
 			// 
 			this->textBox4->Font = (gcnew System::Drawing::Font(L"Consolas", 14));
-			this->textBox4->Location = System::Drawing::Point(302, 172);
+			this->textBox4->Location = System::Drawing::Point(277, 172);
 			this->textBox4->Name = L"textBox4";
-			this->textBox4->ReadOnly = true;
-			this->textBox4->Size = System::Drawing::Size(170, 29);
+			this->textBox4->Size = System::Drawing::Size(95, 29);
 			this->textBox4->TabIndex = 63;
 			// 
 			// label5
@@ -146,9 +152,9 @@ namespace BaigiamasisSmuilys {
 			// textBox3
 			// 
 			this->textBox3->Font = (gcnew System::Drawing::Font(L"Consolas", 14));
-			this->textBox3->Location = System::Drawing::Point(302, 137);
+			this->textBox3->Location = System::Drawing::Point(277, 137);
 			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(170, 29);
+			this->textBox3->Size = System::Drawing::Size(95, 29);
 			this->textBox3->TabIndex = 61;
 			// 
 			// label3
@@ -157,9 +163,9 @@ namespace BaigiamasisSmuilys {
 			this->label3->Font = (gcnew System::Drawing::Font(L"Consolas", 14));
 			this->label3->Location = System::Drawing::Point(13, 140);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(120, 22);
+			this->label3->Size = System::Drawing::Size(210, 22);
 			this->label3->TabIndex = 60;
-			this->label3->Text = L"Dydis (m^2)";
+			this->label3->Text = L"Dydis (m^2), nuo/iki";
 			// 
 			// label4
 			// 
@@ -174,9 +180,9 @@ namespace BaigiamasisSmuilys {
 			// textBox2
 			// 
 			this->textBox2->Font = (gcnew System::Drawing::Font(L"Consolas", 14));
-			this->textBox2->Location = System::Drawing::Point(302, 102);
+			this->textBox2->Location = System::Drawing::Point(277, 102);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(170, 29);
+			this->textBox2->Size = System::Drawing::Size(95, 29);
 			this->textBox2->TabIndex = 58;
 			// 
 			// textBox1
@@ -193,9 +199,9 @@ namespace BaigiamasisSmuilys {
 			this->label2->Font = (gcnew System::Drawing::Font(L"Consolas", 14));
 			this->label2->Location = System::Drawing::Point(13, 105);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(150, 22);
+			this->label2->Size = System::Drawing::Size(240, 22);
 			this->label2->TabIndex = 56;
-			this->label2->Text = L"Lentynų kiekis";
+			this->label2->Text = L"Lentynų kiekis, nuo/iki";
 			// 
 			// name1
 			// 
@@ -210,19 +216,18 @@ namespace BaigiamasisSmuilys {
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(12, 364);
+			this->dataGridView1->Location = System::Drawing::Point(12, 314);
 			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(460, 195);
+			this->dataGridView1->ReadOnly = true;
+			this->dataGridView1->Size = System::Drawing::Size(460, 245);
 			this->dataGridView1->TabIndex = 53;
-			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &ataskaita4::dataGridView1_CellContentClick);
 			// 
 			// textBox5
 			// 
 			this->textBox5->Font = (gcnew System::Drawing::Font(L"Consolas", 14));
-			this->textBox5->Location = System::Drawing::Point(302, 207);
+			this->textBox5->Location = System::Drawing::Point(277, 207);
 			this->textBox5->Name = L"textBox5";
-			this->textBox5->ReadOnly = true;
-			this->textBox5->Size = System::Drawing::Size(170, 29);
+			this->textBox5->Size = System::Drawing::Size(95, 29);
 			this->textBox5->TabIndex = 67;
 			// 
 			// label6
@@ -235,17 +240,37 @@ namespace BaigiamasisSmuilys {
 			this->label6->TabIndex = 66;
 			this->label6->Text = L"Išlaidos";
 			// 
-			// button3
+			// textBox6
 			// 
-			this->button3->Enabled = false;
-			this->button3->Font = (gcnew System::Drawing::Font(L"Consolas", 12.5F));
-			this->button3->Location = System::Drawing::Point(134, 310);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(214, 48);
-			this->button3->TabIndex = 68;
-			this->button3->Text = L"Išsaugoti duomenis";
-			this->button3->UseVisualStyleBackColor = true;
-			this->button3->Click += gcnew System::EventHandler(this, &ataskaita4::button3_Click);
+			this->textBox6->Font = (gcnew System::Drawing::Font(L"Consolas", 14));
+			this->textBox6->Location = System::Drawing::Point(377, 102);
+			this->textBox6->Name = L"textBox6";
+			this->textBox6->Size = System::Drawing::Size(95, 29);
+			this->textBox6->TabIndex = 69;
+			// 
+			// textBox7
+			// 
+			this->textBox7->Font = (gcnew System::Drawing::Font(L"Consolas", 14));
+			this->textBox7->Location = System::Drawing::Point(377, 137);
+			this->textBox7->Name = L"textBox7";
+			this->textBox7->Size = System::Drawing::Size(95, 29);
+			this->textBox7->TabIndex = 70;
+			// 
+			// textBox8
+			// 
+			this->textBox8->Font = (gcnew System::Drawing::Font(L"Consolas", 14));
+			this->textBox8->Location = System::Drawing::Point(377, 172);
+			this->textBox8->Name = L"textBox8";
+			this->textBox8->Size = System::Drawing::Size(95, 29);
+			this->textBox8->TabIndex = 71;
+			// 
+			// textBox9
+			// 
+			this->textBox9->Font = (gcnew System::Drawing::Font(L"Consolas", 14));
+			this->textBox9->Location = System::Drawing::Point(377, 207);
+			this->textBox9->Name = L"textBox9";
+			this->textBox9->Size = System::Drawing::Size(95, 29);
+			this->textBox9->TabIndex = 72;
 			// 
 			// ataskaita4
 			// 
@@ -254,7 +279,10 @@ namespace BaigiamasisSmuilys {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
 			this->ClientSize = System::Drawing::Size(484, 571);
-			this->Controls->Add(this->button3);
+			this->Controls->Add(this->textBox9);
+			this->Controls->Add(this->textBox8);
+			this->Controls->Add(this->textBox7);
+			this->Controls->Add(this->textBox6);
 			this->Controls->Add(this->textBox5);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->button2);
@@ -295,45 +323,71 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	//ofstream fs("NPrekesAtaskaita.txt");
 	std::ifstream fd("Parduotuves.txt");
 	std::ofstream fs("ParduotuvesAtaskaita.txt");
-	fs << "            Vieta              | Lentynu sk.  | Dydis | Imokos  | Ismokos" << endl;
+	msclr::interop::marshal_context context;
+	string vieta = "";
+	int lentynosmin = 0;
+	int lentynosmax = 0;
+	int dydismin = 0;
+	int dydismax = 0;
+	int imokosmin = 0;
+	int imokosmax = 0;
+	int ismokosmin = 0;
+	int ismokosmax = 0;
+	vieta = context.marshal_as<std::string>(textBox1->Text);
+	// reikalingi, kad nemetytu FormatException
+	if (textBox2->Text == "") textBox2->Text = "0";
+	if (textBox3->Text == "") textBox3->Text = "0";
+	if (textBox4->Text == "") textBox4->Text = "0";
+	if (textBox5->Text == "") textBox5->Text = "0";
+	if (textBox6->Text == "") textBox6->Text = "9999";
+	if (textBox7->Text == "") textBox7->Text = "99999";
+	if (textBox8->Text == "") textBox8->Text = "9999999";
+	if (textBox9->Text == "") textBox9->Text = "9999999";
+	lentynosmin = int::Parse(textBox2->Text);
+	lentynosmax = int::Parse(textBox6->Text);
+	dydismin = int::Parse(textBox3->Text);
+	dydismax = int::Parse(textBox7->Text);
+	imokosmin = int::Parse(textBox4->Text);
+	imokosmax = int::Parse(textBox8->Text);
+	ismokosmin = int::Parse(textBox5->Text);
+	ismokosmax = int::Parse(textBox9->Text);
+	bool foundvieta = false;
+	bool foundlentynos = false;
+	bool founddydis = false;
+	bool foundimokos = false;
+	bool foundismokos = false;
+	fs << "            Vieta              | Lentynu sk.  | Dydis | Imokos  | Islaidos" << endl;
 	for (size_t i = 0; !fd.eof(); i++)
 	{
 		parduotuves->parduotuves[i].Skait(fd);
+		if (parduotuves->parduotuves[i].getVieta().find(vieta) != string::npos) foundvieta = true;
+		if (parduotuves->parduotuves[i].getLentynos() >= lentynosmin && parduotuves->parduotuves[i].getLentynos() <= lentynosmax) foundlentynos = true;
+		if (parduotuves->parduotuves[i].getDydis() >= dydismin && parduotuves->parduotuves[i].getDydis() <= dydismax) founddydis = true;
+		if (parduotuves->parduotuves[i].getImokos() >= imokosmin && parduotuves->parduotuves[i].getImokos() <= imokosmax) foundimokos = true;
+		if (parduotuves->parduotuves[i].getIsmokos() >= ismokosmin && parduotuves->parduotuves[i].getIsmokos() <= ismokosmax) foundismokos = true;
 		String^ db_vieta = gcnew String(parduotuves->parduotuves[i].getVieta().c_str());
-		dataGridView1->Rows->Add(db_vieta, parduotuves->parduotuves[i].getLentynos(), parduotuves->parduotuves[i].getDydis(), 
-		parduotuves->parduotuves[i].getImokos(), parduotuves->parduotuves[i].getIsmokos());
-		fs << setw(30) << parduotuves->parduotuves[i].getVieta() << " | " << setw(12) << parduotuves->parduotuves[i].getLentynos() << " | " << setw(5) << parduotuves->parduotuves[i].getDydis() << " | " << setw(7) << parduotuves->parduotuves[i].getImokos() << " | " << parduotuves->parduotuves[i].getIsmokos() << endl;
+		if (foundvieta == true && foundlentynos == true && founddydis == true && foundimokos == true && foundismokos == true)
+		{
+			dataGridView1->Rows->Add(db_vieta, parduotuves->parduotuves[i].getLentynos(), parduotuves->parduotuves[i].getDydis(),
+				parduotuves->parduotuves[i].getImokos(), parduotuves->parduotuves[i].getIsmokos());
+			fs << setw(30) << parduotuves->parduotuves[i].getVieta() << " | " << setw(12) << parduotuves->parduotuves[i].getLentynos() << " | " << setw(5) << parduotuves->parduotuves[i].getDydis() << " | " << setw(7) << parduotuves->parduotuves[i].getImokos() << " | " << parduotuves->parduotuves[i].getIsmokos() << endl;
+		}
+		foundvieta = false;
+		foundlentynos = false;
+		founddydis = false;
+		foundimokos = false;
+		foundismokos = false;
 	}
-	//while (!fd.eof())
-	//{
-		//prekes->prekes[0].Skait(fd);
-		//String^ db_pavadinimas = gcnew String(prekes->getPavadinimas().c_str());
-		//String^ db_gamintojas = gcnew String(prekes->getGamintojas().c_str());
-		//dataGridView1->Rows->Add(db_pavadinimas, db_gamintojas, prekes->getKaina(), prekes->getKaina(), 
-			//prekes->getMetai(), prekes->getMenuo(), prekes->getDiena(), prekes->getKiekis());
-	//}
+	textBox1->Text = "";
+	textBox2->Text = "";
+	textBox3->Text = "";
+	textBox4->Text = "";
+	textBox5->Text = "";
+	textBox6->Text = "";
+	textBox7->Text = "";
+	textBox8->Text = "";
+	textBox9->Text = "";
 	fd.close();
-}
-private: System::Void dataGridView1_CellContentClick(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e) {
-}
-private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
-	int a = 0;
-	msclr::interop::marshal_context context;
-	for (size_t i = 0; i < (dataGridView1->Rows->Count) - 1; i++)
-	{
-		parduotuves->parduotuves[i].setVieta(context.marshal_as<std::string>(dataGridView1->Rows[i]->Cells[0]->Value->ToString()));
-		parduotuves->parduotuves[i].setLentynos(Convert::ToInt32(dataGridView1->Rows[i]->Cells[1]->Value));
-		parduotuves->parduotuves[i].setDydis(Convert::ToInt32(dataGridView1->Rows[i]->Cells[2]->Value));
-		parduotuves->parduotuves[i].setImokos(Convert::ToInt32(dataGridView1->Rows[i]->Cells[3]->Value));
-		parduotuves->parduotuves[i].setIsmokos(Convert::ToInt32(dataGridView1->Rows[i]->Cells[4]->Value));
-		a++;
-	}
-	ofstream fs("Parduotuves.txt");
-	for (size_t j = 0; j < a; j++)
-	{
-		fs << parduotuves->parduotuves[j].getVieta() << ";" << parduotuves->parduotuves[j].getLentynos() << " " << parduotuves->parduotuves[j].getDydis() << " " << parduotuves->parduotuves[j].getImokos() << " " << parduotuves->parduotuves[j].getIsmokos();
-		if (j < a - 1) fs << endl;
-	}
 }
 private: System::Void ataskaita4_Load(System::Object^  sender, System::EventArgs^  e) {
 	dataGridView1->Rows->Clear();

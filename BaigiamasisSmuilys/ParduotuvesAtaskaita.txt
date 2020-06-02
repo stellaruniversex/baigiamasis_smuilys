@@ -1,4 +1,5 @@
-            Vieta              | Lentynu sk.  | Dydis | Imokos  | Ismokos
+            Vieta              | Lentynu sk.  | Dydis | Imokos  | Islaidos
        456 Aukstoji g., Kaunas |          122 |  1400 |  292000 | 280000
           8 Kauno g., Klaipeda |           60 |   900 |   75000 | 80000
        234 Naujoji g., Vilnius |          198 |  2200 |  420000 | 405000
+      456 Zemoji g., Panevezys |          100 |  1000 |  150000 | 140000

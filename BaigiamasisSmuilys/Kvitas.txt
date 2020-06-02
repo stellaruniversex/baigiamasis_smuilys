@@ -1,4 +1,6 @@
 Vardas: Zilvinas Smuilys
       Prekes pavadinimas        |  Kaina  | Kiekis
-                Kiauliena, 500g |    2.99 | 3
-Galutine prekiu suma: 8.97
+  Mineralinis vanduo, 1000ml 6x |   10.99 | 2
+                Kiauliena, 500g |    2.99 | 1
+                Sokoladas, 100g |    0.99 | 3
+Galutine prekiu suma: 27.94

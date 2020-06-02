@@ -3,3 +3,4 @@ Jonas;Jonaitis;256 Senoji g., Klaipeda;865955141
 Petras;Petraitis;2 Lietuvos g., Vilnius;854190909
 Marius;Marijonas;789 Aukstoji g., Siauliai;866310592
 Vardenis;Pavardenis;333 Zemoji g., Marijampole;860911111
+Namas;Namelis;210 Ilgoji g., Kaunas;869519212

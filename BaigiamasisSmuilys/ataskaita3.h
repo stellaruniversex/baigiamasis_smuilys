@@ -25,7 +25,7 @@ namespace BaigiamasisSmuilys {
 			//TODO: Add the constructor code here
 			//
 		}
-	private: System::Windows::Forms::Button^  button3;
+
 	private: System::Windows::Forms::TextBox^  textBox5;
 	private: System::Windows::Forms::TextBox^  textBox6;
 	public:
@@ -85,7 +85,6 @@ namespace BaigiamasisSmuilys {
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
@@ -94,9 +93,10 @@ namespace BaigiamasisSmuilys {
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(12, 315);
+			this->dataGridView1->Location = System::Drawing::Point(12, 272);
 			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(460, 195);
+			this->dataGridView1->ReadOnly = true;
+			this->dataGridView1->Size = System::Drawing::Size(460, 238);
 			this->dataGridView1->TabIndex = 3;
 			// 
 			// label1
@@ -167,7 +167,7 @@ namespace BaigiamasisSmuilys {
 			// 
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Consolas", 14));
-			this->label3->Location = System::Drawing::Point(13, 147);
+			this->label3->Location = System::Drawing::Point(8, 179);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(160, 22);
 			this->label3->TabIndex = 47;
@@ -178,7 +178,6 @@ namespace BaigiamasisSmuilys {
 			this->textBox4->Font = (gcnew System::Drawing::Font(L"Consolas", 14));
 			this->textBox4->Location = System::Drawing::Point(302, 179);
 			this->textBox4->Name = L"textBox4";
-			this->textBox4->ReadOnly = true;
 			this->textBox4->Size = System::Drawing::Size(87, 29);
 			this->textBox4->TabIndex = 50;
 			// 
@@ -186,7 +185,7 @@ namespace BaigiamasisSmuilys {
 			// 
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Consolas", 14));
-			this->label5->Location = System::Drawing::Point(13, 182);
+			this->label5->Location = System::Drawing::Point(12, 144);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(150, 22);
 			this->label5->TabIndex = 49;
@@ -195,7 +194,7 @@ namespace BaigiamasisSmuilys {
 			// button2
 			// 
 			this->button2->Font = (gcnew System::Drawing::Font(L"Consolas", 14));
-			this->button2->Location = System::Drawing::Point(253, 207);
+			this->button2->Location = System::Drawing::Point(253, 218);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(219, 48);
 			this->button2->TabIndex = 52;
@@ -206,25 +205,13 @@ namespace BaigiamasisSmuilys {
 			// button1
 			// 
 			this->button1->Font = (gcnew System::Drawing::Font(L"Consolas", 12.5F));
-			this->button1->Location = System::Drawing::Point(12, 207);
+			this->button1->Location = System::Drawing::Point(12, 218);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(214, 48);
 			this->button1->TabIndex = 51;
 			this->button1->Text = L"Generuoti ataskaitą";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &ataskaita3::button1_Click);
-			// 
-			// button3
-			// 
-			this->button3->Enabled = false;
-			this->button3->Font = (gcnew System::Drawing::Font(L"Consolas", 12.5F));
-			this->button3->Location = System::Drawing::Point(139, 261);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(214, 48);
-			this->button3->TabIndex = 53;
-			this->button3->Text = L"Išsaugoti duomenis";
-			this->button3->UseVisualStyleBackColor = true;
-			this->button3->Click += gcnew System::EventHandler(this, &ataskaita3::button3_Click);
 			// 
 			// textBox5
 			// 
@@ -239,7 +226,6 @@ namespace BaigiamasisSmuilys {
 			this->textBox6->Font = (gcnew System::Drawing::Font(L"Consolas", 14));
 			this->textBox6->Location = System::Drawing::Point(395, 179);
 			this->textBox6->Name = L"textBox6";
-			this->textBox6->ReadOnly = true;
 			this->textBox6->Size = System::Drawing::Size(77, 29);
 			this->textBox6->TabIndex = 55;
 			// 
@@ -252,7 +238,6 @@ namespace BaigiamasisSmuilys {
 			this->ClientSize = System::Drawing::Size(484, 521);
 			this->Controls->Add(this->textBox6);
 			this->Controls->Add(this->textBox5);
-			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->textBox4);
@@ -302,40 +287,81 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	dataGridView1->Columns->Clear();
 	dataGridView1->Refresh();
 	//skaitPrekes(prekes, "Prekes.txt", a);
-	std::ofstream fs("NPrekesAtaskaita.txt");
-	std::ifstream fd("NPrekes.txt");
+	ofstream fs("NPrekesAtaskaita.txt");
+	ifstream fd("NPrekes.txt");
+	msclr::interop::marshal_context context;
+	string pavadinimas = "";
+	string vardas = "";
+	double kainamin = 0;
+	double kainamax = 0;
+	int kiekismin = 0;
+	int kiekismax = 0;
+	pavadinimas = context.marshal_as<std::string>(textBox1->Text);
+	vardas = context.marshal_as<std::string>(textBox2->Text);
+	// reikalingi, kad nemetytu FormatException
+	if (textBox3->Text == "") textBox3->Text = "0";
+	if (textBox4->Text == "") textBox4->Text = "0";
+	if (textBox5->Text == "") textBox5->Text = "9999";
+	if (textBox6->Text == "") textBox6->Text = "9999";
 	dataGridView1->Columns->Add("Column", "Pavadinimas");
 	dataGridView1->Columns->Add("Column", "Vardas");
 	dataGridView1->Columns->Add("Column", "Kaina");
 	dataGridView1->Columns->Add("Column", "Kiekis");
+	kainamin = double::Parse(textBox3->Text);
+	kainamax = double::Parse(textBox5->Text);
+	kiekismin = int::Parse(textBox4->Text);
+	kiekismax = int::Parse(textBox6->Text);
+	bool foundpavadinimas = false;
+	bool foundvardas = false;
+	bool foundkaina = false;
+	bool foundkiekis = false;
 	fs << "          Pavadinimas          |        Vardas        | Kaina  | Kiekis" << endl;
 	for (size_t i = 0; !fd.eof(); i++)
 	{
 		nupirktos->nupirktos[i].Skait(fd);
-		String^ db_pavadinimas = gcnew String(nupirktos->nupirktos[i].getPavadinimas().c_str());
-		String^ db_vardas = gcnew String(nupirktos->nupirktos[i].getVardas().c_str());
-		dataGridView1->Rows->Add(db_pavadinimas, db_vardas, nupirktos->nupirktos[i].getKaina(), nupirktos->nupirktos[i].getKiekis());
-		fs << setw(30) << nupirktos->nupirktos[i].getPavadinimas() << " | " << setw(20) << nupirktos->nupirktos[i].getVardas() << " | " << setw(6) << nupirktos->nupirktos[i].getKaina() << " | " << nupirktos->nupirktos[i].getKiekis() << endl;
+		if (nupirktos->nupirktos[i].getPavadinimas().find(pavadinimas) != string::npos) foundpavadinimas = true;
+		if (nupirktos->nupirktos[i].getVardas().find(vardas) != string::npos) foundvardas = true;
+		if (nupirktos->nupirktos[i].getKaina() >= kainamin && nupirktos->nupirktos[i].getKaina() <= kainamax) foundkaina = true;
+		if (nupirktos->nupirktos[i].getKiekis() >= kiekismin && nupirktos->nupirktos[i].getKiekis() <= kiekismax) foundkiekis = true;
+		if (foundpavadinimas == true && foundvardas == true && foundkaina == true && foundkiekis == true)
+		{
+			String^ db_pavadinimas = gcnew String(nupirktos->nupirktos[i].getPavadinimas().c_str());
+			String^ db_vardas = gcnew String(nupirktos->nupirktos[i].getVardas().c_str());
+			dataGridView1->Rows->Add(db_pavadinimas, db_vardas, nupirktos->nupirktos[i].getKaina(), nupirktos->nupirktos[i].getKiekis());
+			fs << setw(30) << nupirktos->nupirktos[i].getPavadinimas() << " | " << setw(20) << nupirktos->nupirktos[i].getVardas() << " | " << setw(6) << nupirktos->nupirktos[i].getKaina() << " | " << nupirktos->nupirktos[i].getKiekis() << endl;
+		}
+		// sugrazina bool i pradine padeti
+		foundpavadinimas = false;
+		foundvardas = false;
+		foundkaina = false;
+		foundkiekis = false;
 	}
+	// atstato visus textBox i tuscia lauka
+	textBox1->Text = "";
+	textBox2->Text = "";
+	textBox3->Text = "";
+	textBox4->Text = "";
+	textBox5->Text = "";
+	textBox6->Text = "";
 	fd.close();
 }
-private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
-	int a = 0;
-	msclr::interop::marshal_context context;
-	for (size_t i = 0; i < (dataGridView1->Rows->Count) - 1; i++)
-	{
-		nupirktos->nupirktos[i].setPavadinimas(context.marshal_as<std::string>(dataGridView1->Rows[i]->Cells[0]->Value->ToString()));
-		nupirktos->nupirktos[i].setVardas(context.marshal_as<std::string>(dataGridView1->Rows[i]->Cells[1]->Value->ToString()));
-		nupirktos->nupirktos[i].setKaina(Convert::ToDouble(dataGridView1->Rows[i]->Cells[2]->Value));
-		nupirktos->nupirktos[i].setKiekis(Convert::ToInt32(dataGridView1->Rows[i]->Cells[3]->Value));
-		a++;
-	}
-	ofstream fs("NPrekes.txt");
-	for (size_t j = 0; j < a; j++)
-	{
-		fs << nupirktos->nupirktos[j].getPavadinimas() << ";" << nupirktos->nupirktos[j].getVardas() << ";" << nupirktos->nupirktos[j].getKaina() << " " << nupirktos->nupirktos[j].getKiekis();
-		if (j < a - 1) fs << endl;
-	}
-}
+//private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
+//	int a = 0;
+//	msclr::interop::marshal_context context;
+//	for (size_t i = 0; i < (dataGridView1->Rows->Count) - 1; i++)
+//	{
+//		nupirktos->nupirktos[i].setPavadinimas(context.marshal_as<std::string>(dataGridView1->Rows[i]->Cells[0]->Value->ToString()));
+//		nupirktos->nupirktos[i].setVardas(context.marshal_as<std::string>(dataGridView1->Rows[i]->Cells[1]->Value->ToString()));
+//		nupirktos->nupirktos[i].setKaina(Convert::ToDouble(dataGridView1->Rows[i]->Cells[2]->Value));
+//		nupirktos->nupirktos[i].setKiekis(Convert::ToInt32(dataGridView1->Rows[i]->Cells[3]->Value));
+//		a++;
+//	}
+//	ofstream fs("NPrekes.txt");
+//	for (size_t j = 0; j < a; j++)
+//	{
+//		fs << nupirktos->nupirktos[j].getPavadinimas() << ";" << nupirktos->nupirktos[j].getVardas() << ";" << nupirktos->nupirktos[j].getKaina() << " " << nupirktos->nupirktos[j].getKiekis();
+//		if (j < a - 1) fs << endl;
+//	}
+//}
 };
 }

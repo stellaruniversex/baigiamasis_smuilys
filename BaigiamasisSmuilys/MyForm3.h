@@ -264,7 +264,7 @@ namespace BaigiamasisSmuilys {
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->label2);
 			this->Name = L"MyForm3";
-			this->Text = L"MyForm3";
+			this->Text = L"Parduotuviu iterpimas/redagavimas";
 			this->Load += gcnew System::EventHandler(this, &MyForm3::MyForm3_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
@@ -315,9 +315,9 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 		fs << parduotuves->parduotuves[j].getVieta() << ";" << parduotuves->parduotuves[j].getLentynos() << " " << parduotuves->parduotuves[j].getDydis() << " " << parduotuves->parduotuves[j].getImokos() << " " << parduotuves->parduotuves[j].getIsmokos();
 		if (j < a) fs << endl;
 	}
-	label5->Text = "Duomenys issaugoti";
+	label7->Text = "Duomenys issaugoti";
 	Sleep(100);
-	label5->Text = "Laukiama iterpimo/redagavimo";
+	label7->Text = "Laukiama iterpimo/redagavimo";
 }
 private: System::Void MyForm3_Load(System::Object^  sender, System::EventArgs^  e) {
 	dataGridView1->Rows->Clear();
@@ -355,9 +355,9 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 		fs << parduotuves->parduotuves[j].getVieta() << ";" << parduotuves->parduotuves[j].getLentynos() << " " << parduotuves->parduotuves[j].getDydis() << " " << parduotuves->parduotuves[j].getImokos() << " " << parduotuves->parduotuves[j].getIsmokos();
 		if (j < a - 1) fs << endl;
 	}
-	label5->Text = "Duomenys issaugoti";
+	label7->Text = "Duomenys issaugoti";
 	Sleep(100);
-	label5->Text = "Laukiama iterpimo/redagavimo";
+	label7->Text = "Laukiama iterpimo/redagavimo";
 }
 };
 }

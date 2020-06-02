@@ -307,6 +307,9 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	dataGridView1->Rows->Clear();
 	dataGridView1->Columns->Clear();
 	dataGridView1->Refresh();
+	dataGridView1->Columns->Add("Column", "Pavadinimas");
+	dataGridView1->Columns->Add("Column", "Kaina");
+	dataGridView1->Columns->Add("Column", "Kiekis");
 }
 };
 }
